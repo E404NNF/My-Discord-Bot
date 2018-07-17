@@ -10,6 +10,9 @@ const moment = require('moment')
 // Codes.set(تعريف الكلينت حقك)
 const math = require('math-expression-evaluator');
 const stripIndents = require('common-tags').stripIndents;
+client.on('ready', () => {
+    console.log('I am ready!');
+});
 
 client.on('message', msg => {
  if (msg.content.startsWith(prefix + 'calculator')) {
