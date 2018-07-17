@@ -8,7 +8,6 @@ const child_process = require("child_process");
 const figlet = require('figlet');
 const moment = require('moment')
 // Codes.set(تعريف الكلينت حقك)
-const prefix = "NDU2MjUyMDcwNTMwNTE0OTY1.DgH1aw.42RX0ETpn9ZMiZkkqMgi3xO2KXI"
 const math = require('math-expression-evaluator');
 const stripIndents = require('common-tags').stripIndents;
 
