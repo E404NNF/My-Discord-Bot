@@ -2180,7 +2180,7 @@ client.on('message', message => {
 
 
 if(command == "draw") {
-    const Canvas = require('canvas-prebuilt')
+    const Canvas = require('canvas')
     , Image = new Canvas.Image;
     const canvas = Canvas.createCanvas(700, 250);
     ctx = canvas.getContext('2d');
