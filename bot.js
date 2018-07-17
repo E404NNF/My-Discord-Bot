@@ -2448,7 +2448,7 @@ client.on('message', message => {
                         if (message.content = 'error$catfact') {
                         let embed = new Discord.RichEmbed()
                         .setColor('RANDOM')
-                        .addField(${catfact[Math.floor(Math.random() * catfact.length)]})
+                        .addField(`${catfact[Math.floor(Math.random() * catfact.length)]}`)
          message.channel.send({embed:embed});
                         }
                     });
