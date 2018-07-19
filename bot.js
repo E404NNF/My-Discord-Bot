@@ -52,21 +52,6 @@ client.on('message', msg => {
 };
 });
 
-client.on('message', function(message) {
-    if (message.channel.type === "dm") {
-        var norElden = new Discord.RichEmbed()
-            .setColor('RANDOM')
-            .setTimestamp()
-            .setTitle('``NEW MESSAGE IN THE BOT DM``')
-            .setThumbnail(`${message.author.avatarURL}`)
-            .setDescription(`\n\n\`\`\`${message.content}\`\`\``)
-            .setFooter(`من (@${message.author.tag})  |  (${message.author.id})`)
-        client.channels.get("456670646848454668").send({ embed: norElden });
-    }
-});
-
-
-
 client.on('message', message => {
             if (message.content.startsWith('error$ping')) {
                        if(!message.channel.guild) return;
