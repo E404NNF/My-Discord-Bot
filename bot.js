@@ -27,7 +27,7 @@ client.on('ready', () => {
 });
 
 client.on('ready', () => {
-client.user.setActivity("My name use error$help for help" ,{type: "WATCHING"});
+client.user.setActivity("WE NEED TO MAKE THE BOT IN 20 SERVER I M IN ${client.guilds.size}" ,{type: "WATCHING"});
 });
 
 client.on('message', msg => {
