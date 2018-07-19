@@ -11,7 +11,23 @@ const moment = require('moment')
 const math = require('math-expression-evaluator');
 const stripIndents = require('common-tags').stripIndents;
 client.on('ready', () => {
-    console.log('I am ready!');
+  console.log('╔[════════════════════════════════════]╗');
+  console.log('')
+  console.log('            ╔[════════════]╗')
+  console.log('              Bot Is Online')
+  console.log('            ╚[════════════]╝')
+  console.log('')
+  console.log(`Logged in as ${client.user.tag}!`);
+  console.log('')
+  console.log(`servers! [ " ${client.guilds.size} " ]`);
+  console.log('')
+  console.log(`Users! [ " ${client.users.size} " ]`);
+  console.log('')
+  console.log('╚[════════════════════════════════════]╝')
+});
+
+client.on('ready', () => {
+client.user.setActivity("My name use error$help for help" ,{type: "WATCHING"});
 });
 
 client.on('message', msg => {
