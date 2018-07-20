@@ -29,7 +29,7 @@ client.on('ready', () => {
 client.on('ready', function(){
     client.user.setStatus("dnd");
     var ms = 100000 ;
-    var setGame = [`${client.guilds.size} Servers`,`${client.users.size}`,`P... | error$help| error$invitebot | Error name found`];
+    var setGame = [`${client.guilds.size} Servers`,`${client.users.size} Users`,`P... | error$help| error$invitebot | Error name found`];
     var i = -1;
     var j = 0;
     setInterval(function (){
