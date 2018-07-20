@@ -36,7 +36,7 @@ if (msg.content.startsWith(prefix + 'cal')) {
   let args = msg.content.split(" ").slice(1);
       const question = args.join(' ');
   if (args.length < 1) {
-      msg.reply('**Please write the math problem**.');
+      msg.reply('**Write the math problem **.');
 } else {    let answer;
   try {
       answer = math.eval(question);
@@ -47,13 +47,14 @@ if (msg.content.startsWith(prefix + 'cal')) {
   const embed = new Discord.RichEmbed()
   .setThumbnail('https://banner2.kisspng.com/20180215/ade/kisspng-office-supplies-animation-calculator-5a85e764e3aa68.4914103215187249649325.jpg')
 .setDescription(`**
-The problem say :thinking:  : ${question}
+ The math problem is :thinking:  : ${question}
 
-The answer is :writing_hand: : ${answer}**
+ The Answer is :writing_hand: : ${answer}**
 `)
   msg.channel.send(embed)
   }
 };
+});
 
 client.on('message', message => {
             if (message.content.startsWith('error$ping')) {
