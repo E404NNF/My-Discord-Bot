@@ -2251,11 +2251,6 @@ client.on("message", message => {
         }
     }); 
 
-    client.on('message', msg => {
-        if (msg.content.startsWith('.')) {
-          msg.channel.send('**What You mean with**```.```**?**');
-        }
-      });
       client.on('message', message => {
         if (!message.content.startsWith(prefix)) return;
         let command = message.content.split(" ")[0];
