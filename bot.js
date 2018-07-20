@@ -996,6 +996,17 @@ client.on('message', message => {
       
       });
 
+client.on('message', message => {
+    if(message.content === adminprefix + "shutdown") {
+          if (!devs.includes(message.author.id)) return;
+              message.channel.send(`⚠️ **Who OOOFFFFFFFED the bot is ${message.author.username}**`);
+            console.log(`⚠️OOOFFFFFFF⚠️`);
+            client.destroy();
+            console.log(`oof`);
+        }
+      
+      });
+
       client.on('message' , message => { 
         if (message.author.bot) return;
          if (message.content === prefix + "sr") {
