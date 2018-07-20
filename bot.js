@@ -26,8 +26,23 @@ client.on('ready', () => {
   console.log('╚[════════════════════════════════════]╝')
 });
 
-client.on('ready', () => {
-client.user.setActivity(`error$help | error$invitebot | ${client.guilds.size} Servers` ,{type: "WATCHING"});
+client.on('ready', function(){
+    client.user.setStatus("dnd");
+    var ms = 100000 ;
+    var setGame = [`${client.guilds.size} Servers`,`${client.users.size}`,`P... | error$help| error$invitebot | Error name found`];
+    var i = -1;
+    var j = 0;
+    setInterval(function (){
+        if( i == -1 ){
+            j = 1;
+        }
+        if( i == (setGame.length)-1 ){
+            j = -1;
+        }
+        i = i+j;
+	client.user.setActivity(setGame[i],{type: "WATCHING"});
+    }, ms);100000
+
 });
 
 
