@@ -397,6 +397,12 @@ client.on('message', message => {
     }
 });
       
+client.on('message', message => {
+    if (message.content === 'error$dog') {
+
+        message.channel.sendFile("http://thedogapi.com/api/images/get?format=src&type=png", "dog.png")
+    }
+});
 client.on('message', function(msg) {
     if(msg.content.startsWith (prefix  + 'serverinfo')) {
       let embed = new Discord.RichEmbed()
