@@ -96,124 +96,6 @@ if(message.content.startsWith(prefix + 'nickname')) {
        message.channel.send("The Name Changet For: " + changenick + "")
    }
 }});
-
-
-
-       client.on('message', async message => {
-        //!fortnite Ninja solo pc
-    let Client = require('fortnite');
-    let fortnite = new Client('2bb97881-c068-4cba-b3b5-152abfc71c83');
-    let messageArray = message.content.split(" ");
-    let cmd = messageArray[0];
-    let args = messageArray.slice(1);
-      if(message.content.startsWith(prefix + "fortnitestatus")) {
-          let username = args[0];
-          let platform = args[2] || 'pc';
-          let gamemode = args[1];
-          if(gamemode != 'solo' && gamemode != 'duo' && gamemode != 'squad' && gamemode != 'lifetime') return message.reply(`**طريقة الاستخدام : ${prefix}fortnitestatus username mode platform**`);
-          
-      if(!username) return message.reply('**Specify a username!**');
-      
-      let data = fortnite.user(username, platform).then(data => {
-          let stats = data.stats;
-          
-          if(gamemode === 'solo') {
-              let solostats = stats.solo;
-              let score = solostats.score;
-              let kd = solostats.kd;
-              let matches = solostats.matches;
-              let kills = solostats.kills;
-              let wins = solostats.wins;
-              let top3 = solostats.top_3;
-  
-              let ByEmbed = new Discord.RichEmbed()
-              .setAuthor('Forntite Tracker Solo Stats')
-              .setTitle(data.username+"'s Stats")
-              .setColor("RANDOM")
-              .setThumbnail("https://www.teepublic.com/t-shirt/2412274-fortnite-logo-game-t-shirts")
-              .addField('# | Wins:',wins,true)
-              .addField('# | Kills:',kills,true)
-              .addField('# | Score:',score,true)
-              .addField("# | Matches:",matches,true)
-              .addField("# | Kill/Death Ratio:",kd,true)
-              .addField("# | Top 3:",top3,true)
-              
-              return message.channel.send(ByEmbed);
-              
-          }else if (gamemode === 'duo') {
-              let Duostats = stats.duo;
-              let score = Duostats.score;
-              let kd = Duostats.kd;
-              let matches = Duostats.matches;
-              let kills = Duostats.kills;
-              let wins = Duostats.wins;
-              let top3 = Duostats.top_3;
-  
-              let ByEmbed = new Discord.RichEmbed()
-              .setAuthor('Forntite Tracker Duo Stats')
-              .setTitle(data.username+"'s Stats")
-              .setColor("RANDOM")
-              .setThumbnail("https://www.teepublic.com/t-shirt/2412274-fortnite-logo-game-t-shirts")
-              .addField('# | Wins:',wins,true)
-              .addField('# | Kills:',kills,true)
-              .addField('# | Score:',score,true)
-              .addField("# | Matches:",matches,true)
-              .addField("# | Kill/Death Ratio:",kd,true)
-              .addField("# | Top 3:",top3,true)
-              
-          message.channel.send(ByEmbed);
-  
-          }else if(gamemode === 'squad') {
-              let squadstats = stats.squad;
-              let score = squadstats.score;
-              let kd = squadstats.kd;
-              let matches = squadstats.matches;
-              let kills = squadstats.kills;
-              let wins = squadstats.wins;
-              let top3 = squadstats.top_3;
-              
-              let ByEmbed = new Discord.RichEmbed()
-              .setAuthor('Forntite Tracker Squad Stats')
-              .setTitle(data.username+"'s Stats")
-              .setColor("RANDOM")
-              .setThumbnail("https://www.teepublic.com/t-shirt/2412274-fortnite-logo-game-t-shirts")
-              .addField('# | Wins:',wins,true)
-              .addField('# | Kills:',kills,true)
-              .addField('# | Score:',score,true)
-              .addField("# | Matches:",matches,true)
-              .addField("# | Kill/Death Ratio:",kd,true)
-              .addField("# | Top 3:",top3,true)
-              
-              return message.channel.send(ByEmbed);
-              
-          }else {
-              
-          
-          let lifetime = stats.lifetime;
-          let score = lifetime[6]['Score'];
-          let mplayed = lifetime[7]['Matches Played'];
-          let wins = lifetime[8]['Wins'];
-          let winper = lifetime[9]['Win%'];
-          let kills = lifetime[10]['Kills'];
-          let kd = lifetime[11]['K/d'];
-          
-                      let ByEmbed = new Discord.RichEmbed()
-              .setAuthor('Forntite Tracker Duo Stats')
-              .setTitle(data.username+"'s Stats")
-              .setColor("RANDOM")
-              .setThumbnail("https://www.teepublic.com/t-shirt/2412274-fortnite-logo-game-t-shirts")
-              .addField('# | Wins:',wins,true)
-              .addField('# | Kills:',kills,true)
-              .addField('# | Score:',score,true)
-              .addField("# | Matches:",mplayed,true)
-              .addField("# | Kill/Death Ratio:",kd,true)
-              .addField("# | Win Percentage:",winper,true)
-              
-          message.channel.send(ByEmbed);
-      }
-      })
-      }
-  });
 	  
   client.on('message', message => {
     if(message.content.startsWith(prefix + 'roleperms')) {
@@ -409,15 +291,15 @@ client.on('message', function(msg) {
       .setColor('RANDOM')
       .setThumbnail(msg.guild.iconURL)
       .setTitle(`Showing Details Of  **${msg.guild.name}*`)
-      .addField('🌐** نوع السيرفر**',`[** __${msg.guild.region}__ **]`,true)
-      .addField('🏅** __الرتب__**',`[** __${msg.guild.roles.size}__ **]`,true)
-      .addField('🔴**__ عدد الاعضاء__**',`[** __${msg.guild.memberCount}__ **]`,true)
-      .addField('🔵**__ عدد الاعضاء الاونلاين__**',`[** __${msg.guild.members.filter(m=>m.presence.status == 'online').size}__ **]`,true)
-      .addField('📝**__ الرومات الكتابية__**',`[** __${msg.guild.channels.filter(m => m.type === 'text').size}__** ]`,true)
-      .addField('🎤**__ رومات الصوت__**',`[** __${msg.guild.channels.filter(m => m.type === 'voice').size}__ **]`,true)
-      .addField('👑**__ الأونـر__**',`**${msg.guild.owner}**`,true)
-      .addField('🆔**__ ايدي السيرفر__**',`**${msg.guild.id}**`,true)
-      .addField('📅**__ تم عمل السيرفر في__**',msg.guild.createdAt.toLocaleString())
+      .addField('🌐** ServerType **',`[** __${msg.guild.region}__ **]`,true)
+      .addField('🏅** Roles **',`[** __${msg.guild.roles.size}__ **]`,true)
+      .addField('🔴** Members Numbers **',`[** __${msg.guild.memberCount}__ **]`,true)
+      .addField('🔵** ONLINE **',`[** __${msg.guild.members.filter(m=>m.presence.status == 'online').size}__ **]`,true)
+      .addField('📝** Channels **',`[** __${msg.guild.channels.filter(m => m.type === 'text').size}__** ]`,true)
+      .addField('🎤** Voice Channels**',`[** __${msg.guild.channels.filter(m => m.type === 'voice').size}__ **]`,true)
+      .addField('👑** Creator **',`**${msg.guild.owner}**`,true)
+      .addField('🆔** Server ID **',`**${msg.guild.id}**`,true)
+      .addField('📅** Server created in **',msg.guild.createdAt.toLocaleString())
       msg.channel.send({embed:embed});
     }
   });
@@ -555,12 +437,6 @@ client.on("message", message => {
                          message.guild.roles.forEach(r => { r.delete() }) 
                          message.guild.createRole({ name: "Owner", color: 'RANDOM', permissions: [] })
                          message.guild.createRole({ name: "Co-Owner", color: 'RANDOM', permissions: [] })
-                         message.guild.createRole({ name: "Leader", color: 'RANDOM', permissions: [] })
-                         message.guild.createRole({ name: "Co-Leader", color: 'RANDOM', permissions: [] })
-                         message.guild.createRole({ name: "King", color: 'RANDOM', permissions: [] })
-                         message.guild.createRole({ name: "Qween", color: 'RANDOM', permissions: [] })
-                         message.guild.createRole({ name: "HighNiss", color: 'RANDOM', permissions: [] })
-                         message.guild.createRole({ name: "Pros", color: 'RANDOM', permissions: [] })
                          message.guild.createRole({ name: "VIP+", color: 'RANDOM', permissions: [] })
                          message.guild.createRole({ name: "VIP", color: 'RANDOM', permissions: [] })
                          message.guild.createRole({ name: "Actve", color: 'RANDOM', permissions: [] })
@@ -699,8 +575,8 @@ client.on("message", message => {
             client.on('message', ra3d => {
                                         let args = ra3d.content.split(" ").slice(1).join(" ")
                 if(ra3d.content.startsWith(prefix + 'createcolors')) {
-                    if(!args) return ra3d.channel.send('`يرجي اختيار كم لون `');
-                             if (!ra3d.member.hasPermission('MANAGE_ROLES')) return ra3d.channel.sendMessage('`**⚠ | `[MANAGE_ROLES]` لا يوجد لديك صلاحية**'); 
+                    if(!args) return ra3d.channel.send('` enter how much colors `');
+                             if (!ra3d.member.hasPermission('MANAGE_ROLES')) return ra3d.channel.sendMessage('`**⚠ | `[MANAGE_ROLES]` PERMISSION NEEDED**'); 
                               ra3d.channel.send(`**✅ |Creating __${args}__ Colors**`);
                                   setInterval(function(){})
                                     let count = 0;
@@ -758,6 +634,7 @@ client.on("message", message => {
             error$invite
             error$e <Text>
             error$id
+            error$fortnite
             Fun
             -----------------------------------
             error$cat
@@ -836,38 +713,20 @@ client.on('message', message => {
             if(!message.channel.guild) return message.channel.send('**This Command Only For Servers !**')
                     if (!message.member.hasPermission('MANAGE_CHANNELS')) return message.channel.reply(`**You Dont Have** MANAGE_CHANNELS **Premission**`);
                     message.guild.channels.forEach(c => { c.delete() })
-                    message.guild.roles.forEach(r => { r.delete() }) 
-             message.guild.createChannel('「 O W N E R 」', 'voice')
-             message.guild.createChannel('「 C O - L E A D E R 」', 'voice')
-             message.guild.createChannel('「ADMINSTRATOR」', 'voice')
-             message.guild.createChannel('𖦲₁PARTY𖦲', 'voice')
-             message.guild.createChannel('𖦲₂PARTY𖦲', 'voice')
-             message.guild.createChannel('𖦲₂PARTY𖦲', 'voice')
-             message.guild.createChannel('✬ʝuşτ-1✬', 'voice')
-         message.guild.createChannel('✬ʝuşτ-2✬', 'voice')
-             message.guild.createChannel('✬ʝuşτ-3✬', 'voice')
-             message.guild.createChannel('✬ʝuşτ-4✬', 'voice')
-             message.guild.createChannel('✬ʝuşτ-5✬', 'voice')
-             message.guild.createChannel('😴sleep', 'voice')
-                  message.guild.createChannel('Big PPL', 'voice')
+                    message.guild.roles.forEach(r => { r.delete() })
              message.guild.createChannel('welcome', 'text')
              message.guild.createChannel('info', 'text')
              message.guild.createChannel('bot', 'text')
              message.guild.createChannel('chat', 'text')
              message.guild.createChannel('Youtube', 'text')
-             message.guild.createChannel('bo7', 'text')
              message.guild.createChannel('party', 'text')
              message.guild.createChannel('pic', 'text')
         
              message.guild.roles.forEach(r => { r.delete() }) 
              message.guild.createRole({ name: "Owner", color: 'RANDOM', permissions: [] })
              message.guild.createRole({ name: "Co-Owner", color: 'RANDOM', permissions: [] })
-             message.guild.createRole({ name: "Leader", color: 'RANDOM', permissions: [] })
-             message.guild.createRole({ name: "Co-Leader", color: 'RANDOM', permissions: [] })
-             message.guild.createRole({ name: "King", color: 'RANDOM', permissions: [] })
-             message.guild.createRole({ name: "Qween", color: 'RANDOM', permissions: [] })
-             message.guild.createRole({ name: "HighNiss", color: 'RANDOM', permissions: [] })
-             message.guild.createRole({ name: "Pros", color: 'RANDOM', permissions: [] })
+             message.guild.createRole({ name: "Admin", color: 'RANDOM', permissions: [] })
+             message.guild.createRole({ name: "Moderator", color: 'RANDOM', permissions: [] })
              message.guild.createRole({ name: "VIP+", color: 'RANDOM', permissions: [] })
              message.guild.createRole({ name: "VIP", color: 'RANDOM', permissions: [] })
              message.guild.createRole({ name: "Actve", color: 'RANDOM', permissions: [] })
@@ -889,27 +748,32 @@ client.on('message', message => {
             if(!message.channel.guild) return message.channel.send('**This Command Only For Servers !**')
             if (!message.member.hasPermission('MANAGE_CHANNELS')) return message.channel.send(`** You Dont Have MANAGE_CHANNELS Premission**`);
                     message.guild.channels.forEach(c => { c.delete() })
-             message.guild.createChannel('「 O W N E R 」', 'voice')
-             message.guild.createChannel('「 C O - L E A D E R 」', 'voice')
-             message.guild.createChannel('「ADMINSTRATOR」', 'voice')
-             message.guild.createChannel('𖦲₁PARTY𖦲', 'voice')
-             message.guild.createChannel('𖦲₂PARTY𖦲', 'voice')
-             message.guild.createChannel('𖦲₂PARTY𖦲', 'voice')
-             message.guild.createChannel('✬ʝuşτ-1✬', 'voice')
-         message.guild.createChannel('✬ʝuşτ-2✬', 'voice')
-             message.guild.createChannel('✬ʝuşτ-3✬', 'voice')
-             message.guild.createChannel('✬ʝuşτ-4✬', 'voice')
-             message.guild.createChannel('✬ʝuşτ-5✬', 'voice')
-             message.guild.createChannel('😴sleep', 'voice')
-                  message.guild.createChannel('Big PPL', 'voice')
              message.guild.createChannel('welcome', 'text')
              message.guild.createChannel('info', 'text')
              message.guild.createChannel('bot', 'text')
              message.guild.createChannel('chat', 'text')
              message.guild.createChannel('Youtube', 'text')
-             message.guild.createChannel('bo7', 'text')
              message.guild.createChannel('party', 'text')
              message.guild.createChannel('pic', 'text')
+        
+             message.guild.roles.forEach(r => { r.delete() }) 
+             message.guild.createRole({ name: "Owner", color: 'RANDOM', permissions: [] })
+             message.guild.createRole({ name: "Co-Owner", color: 'RANDOM', permissions: [] })
+             message.guild.createRole({ name: "Admin", color: 'RANDOM', permissions: [] })
+             message.guild.createRole({ name: "Moderator", color: 'RANDOM', permissions: [] })
+             message.guild.createRole({ name: "VIP+", color: 'RANDOM', permissions: [] })
+             message.guild.createRole({ name: "VIP", color: 'RANDOM', permissions: [] })
+             message.guild.createRole({ name: "Actve", color: 'RANDOM', permissions: [] })
+             message.guild.createRole({ name: "Members", color: 'RANDOM', permissions: [] })
+             message.guild.createRole({ name: "Bots", color: 'RANDOM', permissions: [] })
+             message.guild.createRole({ name: "Important Bots", color: 'RANDOM', permissions: [] })
+
+
+        message.channel.sendMessage('**All Roles Will be removed**')
+        message.channel.sendMessage('**Please Wait Whill Creating Roles**')
+        message.channel.sendMessage('**The Roles Not Have Permissions**')
+
+        message.channel.sendMessage('**Please Wait Will Making The Server**')
         }
         });
 
