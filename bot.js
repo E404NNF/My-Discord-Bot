@@ -285,8 +285,7 @@ const DOG_API_URL   = "https://api.thedogapi.com/"
 const DOG_API_KEY   = "b9217e7c-c03c-4dde-9c54-7faa0578be18"; // get a free key from - https://thedogapi.com/signup
 client.on('message', message => {
     if (message.content === 'error$dog') {
-
-        message.channel.sendFile("http://thedogapi.com/api/images/get?format=src&type=png", "dog.png")
+ messageRecieved(message);
     }
 });
 
