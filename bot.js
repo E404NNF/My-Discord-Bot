@@ -1,5 +1,7 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
+const querystring = require('querystring');
+const r2          = require('r2');
 var prefix = "error$";
 const devs = ['426260385411104768','406877114936197120','452292328569307137'];
 const adminprefix = "botowner$"
