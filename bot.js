@@ -2134,6 +2134,41 @@ client.on('message' , message => {
 });
 
 client.on("message", message => {
+
+    if (message.content.startsWith(prefix + 'tierlist')) {
+        let q
+        rea = message.content.substring(10)
+        re = /\|/i
+        if (re.test(rea)==false) {
+            message.channel.send("Seperate your inputs with `|`s")
+            return;
+        }
+        re = / *\| */i
+        rea = rea.replace("\`", "")
+        rea = rea.split(re)
+        let tiers = ['', '', '', '', '', '', '']
+        console.log(rea)
+        for (let i = 0; i<rea.length; i++) {
+            q = Math.floor(Math.random()*7)
+            if(tiers[q]=="") {
+                tiers[q] = rea[i]
+            } else {
+                tiers[q] = tiers[q] + ", " + rea[i]
+            }
+        }
+        q = "```S: " + tiers[0] + "\n"
+        q = q + "A: " + tiers[1] + "\n"
+        q = q + "B: " + tiers[2] + "\n"
+        q = q + "C: " + tiers[3] + "\n"
+        q = q + "D: " + tiers[4] + "\n"
+        q = q + "E: " + tiers[5] + "\n"
+        q = q + "F: " + tiers[6] + "```"
+        message.channel.send(q)
+    }
+
+});
+
+client.on("message", message => {
     if (!message.content.startsWith(adminprefix)) return;
       let command = message.content.split(" ")[0];
       command = command.slice(adminprefix.length);
