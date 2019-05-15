@@ -2202,7 +2202,7 @@ client.on("message", message => {
         re = / *\| */i
         rea = rea.replace("\`", "")
         rea = rea.split(re)
-        message.channel.send(rea)
+        message.channel.send("ok" + rea)
         let tiers = ['', '', '', '', '', '', '']
         console.log(rea)
         for (let i = 0; i<rea.length; i++) {
