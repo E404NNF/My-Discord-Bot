@@ -1929,11 +1929,10 @@ client.on("message", message => {
     client.on('message' , async (message) => {
         if (message.content.startsWith(prefix + 'password')) {
        
-       let color = '0xffffff'
+       let color = '0x01DF01'
        
              const { body } = await superagent
            .get('https://www.passwordrandom.com/query?command=password&format=json&count=1);
-           if(body.answer === 'yes') color = '0x01DF01';
            const embed = new Discord.RichEmbed()
            .setColor(color)
 	   message.channel.send(`check your dms`)
