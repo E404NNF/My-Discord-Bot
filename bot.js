@@ -1390,6 +1390,16 @@ message.channel.sendEmbed(embed);
 
 }
 });
+if (message.content === prefix + "avatar") {
+   let embed = new Discord.RichEmbed()
+   .setAuthor(`${message.author.username}`,`${message.author.avatarURL}`)
+         .setThumbnail(`${client.user.avatarURL}`)
+  .addField(`MESSAGE AUTHOR`, message.author.tag ,true)
+message.channel.sendEmbed(embed);
+
+
+}
+});
 
 
 
