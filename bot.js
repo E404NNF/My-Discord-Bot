@@ -10,8 +10,8 @@ const fs = require('fs-extra');
 const child_process = require("child_process");
 const figlet = require('figlet');
 const moment = require('moment');
-const bitlyclient = require('bitly');
-const bitly = new bitlyclient('o_4b32m4lfa4');
+const BitlyClient = require('bitly');
+const bitly = new BitlyClient('o_4b32m4lfa4');
 // Codes.set(تعريف الكلينت حقك)
 const math = require('math-expression-evaluator');
 const stripIndents = require('common-tags').stripIndents;
