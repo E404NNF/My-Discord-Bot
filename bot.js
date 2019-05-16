@@ -1935,9 +1935,11 @@ client.on("message", message => {
              let { body } = await superagent
            .get('https://www.passwordrandom.com/query?command=password&format=json&count=1');
            const embed = new Discord.RichEmbed()
-           .setColor(color)
+           .setColor(color).setDescription(`**
+                   Password boi:** **${body.char}**
+                                           `)
 	   message.channel.send(`check your dms`)
-           message.author.sendMessage(`**Password boi:** **${body.char}**`, {embed});
+           message.author.sendMessage(``, {embed});
        
        }
        });
