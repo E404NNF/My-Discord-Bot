@@ -364,7 +364,8 @@ message.channel.sendMessage('جار ارسال الرسالة |:white_check_mark
 client.users.forEach(m =>{
 m.sendMessage(args)
 })
-}});
+}
+});
 client.on('message', message => {
     if (message.author.bot) return;
 if (message.content.startsWith(prefix + "uptime")) {
@@ -592,7 +593,6 @@ let codes = {
 				],
 				timestamp: new Date()
 			}
-           }
 	   });
 
 client.on('message', message => {
@@ -1395,5 +1395,4 @@ mentionned.send(` :credit_card: | Transfer Receipt \`\`\`You have received ${arg
 }
 
       });
-
 client.login(process.env.BOT_TOKEN)
