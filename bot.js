@@ -1947,11 +1947,23 @@ client.on("message", message => {
              let { body } = await superagent
            .get('https://www.passwordrandom.com/query?command=password&format=json&count=1');
            const embed = new Discord.RichEmbed()
-           .setColor(color).setDescription(`**
-                   Password boi:** **${body.char}**
-                                           `)
+           .setColor(color).setDescription(`**Password boi:** **${body.char}**`)
 	   message.channel.send(`check your dms`)
            message.author.sendMessage(``, {embed});
+       
+       }
+       });
+
+    client.on('message' , async (message) => {
+        if (message.content === "error$meme") {
+       
+       let color = '0x01DF01'
+       
+             let { body } = await superagent
+           .get('https://meme-api.herokuapp.com/gimme/memes');
+	   message.channel.send(`Subredit: r/${body.subreddit}`)
+	   message.channel.send(`Title: ${body.title}`)
+		message.channel.sendFile(`${body.url}`)
        
        }
        });
