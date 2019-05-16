@@ -43,7 +43,8 @@
     "dotenv": "^6.0.0",
     "querystring": "^0.2.0",
     "r2": "^2.0.1",
-    "superagent": "^5.0.5"
+    "superagent": "^5.0.5",
+    "bitly": "^6.0.8"
   },
   "engines": {
     "node": "8.4.0"
