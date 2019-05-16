@@ -2,8 +2,7 @@ const Discord = require("discord.js");
 const client = new Discord.Client();
 const querystring = require('querystring');
 const r2          = require('r2');
-const supe]
-ragent = require('superagent');
+const superagent = require('superagent');
 var prefix = "error$";
 const devs = ['426260385411104768','406877114936197120','452292328569307137'];
 const adminprefix = "botowner$"
@@ -1393,19 +1392,22 @@ message.channel.sendEmbed(embed);
 });
 client.on("message", message => {
 if(message.content.startsWith(prefix + "avatar")){
+if(message.author.bot || message.channel.type == "dm") return;
 var args = message.content.split(" ")[1];
 var avt = args || message.author.id;
-client.fetchUser(avt) 
+client.fetchUser(avt)
 .then((user) => {
 avt = user
 let avtEmbed = new Discord.RichEmbed()
 .setColor("#36393e")
 .setAuthor(`${avt.username}'s Avatar`, message.author.avatarURL)
 .setImage(avt.avatarURL)
+.setFooter(`Error bot.`, message.client.user.avatarURL);
 message.channel.send(avtEmbed);
 })
-});
-
+.catch(() => message.channel.send(`Error`));
+} // Julian
+}); // Codes - Toxic Codes
 
 
 
