@@ -592,7 +592,8 @@ let codes = {
 				],
 				timestamp: new Date()
 			}
-           });
+           }
+	   });
 
 client.on('message', message => {
             if (message.content === 'error$invitebot') {
