@@ -1926,6 +1926,23 @@ client.on("message", message => {
        }
        });
 
+    client.on('message' , async (message) => {
+        if (message.content.startsWith(prefix + 'password')) {
+       
+       let color = '0xffffff'
+       
+             const { body } = await superagent
+           .get('https://www.passwordrandom.com/query?command=password&format=json&count=1);
+           if(body.answer === 'yes') color = '0x01DF01';
+           const embed = new Discord.RichEmbed()
+           .setColor(color)
+	   message.channel.send(`check your dms`)
+           message.author.sendMessage(`**Password boi:** **${body.char}**`, {embed});
+       
+       }
+       });
+
+
        client.on('message', async message => {
         let time = moment().format('Do MMMM YYYY , hh:mm');
         let wUser = message.mentions.members.first();
