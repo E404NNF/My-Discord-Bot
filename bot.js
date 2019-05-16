@@ -1927,7 +1927,7 @@ client.on("message", message => {
        });
 
     client.on('message' , async (message) => {
-        if (message.content.startsWith(prefix + 'password')) {
+        if (message.content === "error$password") {
        
        let color = '0x01DF01'
        
