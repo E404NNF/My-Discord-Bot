@@ -2,6 +2,7 @@ const Discord = require("discord.js");
 const client = new Discord.Client();
 const querystring = require('querystring');
 const r2          = require('r2');
+const superagent = require('superagent');
 var prefix = "error$";
 const devs = ['426260385411104768','406877114936197120','452292328569307137'];
 const adminprefix = "botowner$"
@@ -1931,7 +1932,7 @@ client.on("message", message => {
        
        let color = '0x01DF01'
        
-             const { body } = await superagent
+             let { body } = await superagent
            .get('https://www.passwordrandom.com/query?command=password&format=json&count=1');
            const embed = new Discord.RichEmbed()
            .setColor(color)
