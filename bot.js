@@ -1397,6 +1397,7 @@ if (message.content === prefix + "avatar") {
          .setThumbnail(message.author.avatarURL)
   .addField(`MESSAGE AUTHOR`, message.author.tag ,true)
 message.channel.sendEmbed(embed);
+	message.xhannel.sendMessage(message.author.avatarURL);
 
 
 }
