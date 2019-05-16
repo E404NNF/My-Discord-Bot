@@ -10,8 +10,6 @@ const fs = require('fs-extra');
 const child_process = require("child_process");
 const figlet = require('figlet');
 const moment = require('moment');
-const BitlyClient = require('bitly');
-const bitly = new BitlyClient('o_4b32m4lfa4');
 // Codes.set(تعريف الكلينت حقك)
 const math = require('math-expression-evaluator');
 const stripIndents = require('common-tags').stripIndents;
@@ -29,14 +27,6 @@ client.on('ready', () => {
   console.log(`Users! [ " ${client.users.size} " ]`);
   console.log('')
   console.log('╚[════════════════════════════════════]╝')
-	bitly
-  .shorten('https://github.com/tanepiper/node-bitly')
-  .then(function(result) {
-    console.log(result);
-  })
-  .catch(function(error) {
-    console.error(error);
-  });
 });
 client.on('error', data => {
   console.log('error',data);
