@@ -1915,7 +1915,7 @@ client.on("message", message => {
        
        let color = '0xffffff'
        
-             const { body } = await superagent
+             let { body } = await superagent
            .get('https://yesno.wtf/api/');
            if(body.answer === 'yes') color = '0x01DF01';
            if(body.answer === 'no') color = '0xFF0000';
