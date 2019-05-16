@@ -1968,6 +1968,20 @@ client.on("message", message => {
        }
        });
 
+    client.on('message' , async (message) => {
+        if (message.content === "error$cursedminecraft") {
+       
+       let color = '0x01DF01'
+       
+             let { body } = await superagent
+           .get('https://meme-api.herokuapp.com/gimme/CursedMinecraft');
+	   message.channel.send(`Subredit: r/${body.subreddit}`)
+	   message.channel.send(`Title: ${body.title}`)
+		message.channel.sendFile(`${body.url}`)
+       
+       }
+       });
+
 
        client.on('message', async message => {
         let time = moment().format('Do MMMM YYYY , hh:mm');
