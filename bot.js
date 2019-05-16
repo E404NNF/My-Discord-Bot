@@ -1390,10 +1390,11 @@ message.channel.sendEmbed(embed);
 
 }
 });
+client.on('message', message => {
 if (message.content === prefix + "avatar") {
    let embed = new Discord.RichEmbed()
-   .setAuthor(`${message.author.username}`,`${message.author.avatarURL}`)
-         .setThumbnail(`${client.user.avatarURL}`)
+   .setAuthor(message.author.username ,message.author.avatarURL)
+         .setThumbnail(message.author.avatarURL)
   .addField(`MESSAGE AUTHOR`, message.author.tag ,true)
 message.channel.sendEmbed(embed);
 
