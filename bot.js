@@ -424,18 +424,19 @@ if (message.content.startsWith(prefix + "uptime")) {
 
 }
 });      
-
-client.on("message", message => {
-    if (!message.content.startsWith(prefix)) return;
-      let command = message.content.split(" ")[0];
-      command = command.slice(prefix.length);
-        if(command === "mcskin") {
-                const args = message.content.split(" ").slice(1).join(" ")
-        if (!args) return message.channel.send("** Type your skin name **");
-        const image = new Discord.Attachment(`https://minotar.net/armor/body/${args}`, "skin.png");
-    message.channel.send(image)
-        }
-    }); 
+client.on('message', message => {
+  const aa = message.content.split(" ").slice(1).join(" ");
+  if(message.content.startsWith(prefix + "skin")){
+    if(!aa) return message.reply(`:x:  -  **${prefix}skin <name>**`);
+    var ss = new Discord.RichEmbed()
+    .setTitle(`${aa}'s Skin!`)
+    .setURL(`https://minotar.net/armor/body/${aa}/100.png`)
+    .setThumbnail(`https://minotar.net/avatar/${aa}`)
+    .setImage(`https://minotar.net/armor/body/${aa}/100.png`)
+    .setFooter(`${aa}`, `https://minotar.net/cube/${aa}/100.png`)
+    message.channel.send(ss);
+  }
+});
     client.on("message", message => {
         if (!message.content.startsWith(prefix)) return;
           let command = message.content.split(" ")[0];
