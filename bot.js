@@ -78,6 +78,13 @@ if (msg.content.startsWith(prefix + 'cal')) {
 });
 
 client.on('message', message => {
+
+     if (message.content.startsWith(prefix)){
+           console.log(message.author.username + " executed: " + message.content + " in server " + message.guild.name)
+     }
+});
+
+client.on('message', message => {
             if (message.content.startsWith('error$ping')) {
                        if(!message.channel.guild) return;
             
