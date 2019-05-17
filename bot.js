@@ -568,7 +568,7 @@ let codes = {
 					icon_url: client.user.avatarURL
 				},
 				title: "**Admistration**",
-				description: "The command prefix is "${prefix}"",
+				description: "The command prefix is ${prefix}",
 				fields: [
 					{
 						name: "**error$createcolors [X]**",
@@ -1396,3 +1396,4 @@ mentionned.send(` :credit_card: | Transfer Receipt \`\`\`You have received ${arg
 
       });
 client.login(process.env.BOT_TOKEN)
+			
