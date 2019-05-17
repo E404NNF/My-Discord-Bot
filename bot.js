@@ -54,100 +54,14 @@ client.on("ready", function(){
 
       client.on("message", message => {	
              if (message.content === "error$help") {	
-		    message.channel.send({	
-			embed: {	
-				color: 3447003,	
-				author: {	
-					name: client.user.username,	
-					icon_url: client.user.avatarURL	
-				},	
-				title: "**Admistration**",	
-				description: "The command prefix is ${prefix}",	
-				fields: [	
-					{	
-						name: "**error$createcolors [X]**",	
-						value: "*Creates some colored rules the [X] stands for how times*"	
-					},	
-					{	
-						name: "**error$createcolors [X]**",	
-						value: "*Creates some colored rules the [X] stands for how times*"	
-					},	
-					{	
-						name: "**error$bc [MESSAGE]**",	
-						value: "*Sends a message to all the server members [MESSAGE] stands for the message*"	
-					},	
-					{	
-						name: "**error$clear [X]**",	
-						value: "*Clears the last [X] messages in the current channel*"	
-					},	
-					{	
-						name: "**error$unban [PERSONE]**",	
-						value: "*Unbans the [PERSONE]*"	
-					}
-				],	
-				timestamp: new Date()	
-			},
-			    message.channel.send({
-			embed: {
-				color: 3447003,
-				author: {
-					name: client.user.username,
-					icon_url: client.user.avatarURL
-				},
-				title: "**Misc**",
-				description: 'The command prefix is "${prefix}"',
-				fields: [
-					{
-						name: "**error$invite**",
-						value: "*Create's a 24H invite link to the current server*"
-					},
-					{
-						name: "**error$sendto [PERSONE] [MESSAGE]**",
-						value: "*Send's a [MESSAGE] to a [PERSONE]*"
-					},
-					{
-						name: "**error$serverrooms**",
-						value: "*Give's you information about the server roooms [Numbers and names]*"
-					},
-					{
-						name: "**error$status**",
-						value: "*Bot status*"
-					},
-					{
-						name: "**error$whohasmytag**",
-						value: "*Check's who have your #XXXX number in the server*"
-					},
-					{
-						name: "**error$invites**",
-						value: "*Check's how much you invited*"
-					},
-					{
-						name: "**error$membersmode**",
-						value: "*Check's All the server users status DND,Idle,Online,Offline*"
-					},
-					{
-						name: "**error$serverimage**",
-						value: "*Gives you the current server icon*"
-					},
-					{
-						name: "**error$calc [MATH PROBLEM]**",
-						value: "*Solve's the [MATH PROBLEM] for you*"
-					},
-					{
-						name: "**error$pring**",
-						value: "*Give's you the bot ping*"
-					},
-					{
-						name: "**error$roleperms [ROLE]**",
-						value: "*Give's you the perms of the role you have OR the perms of the [ROLE]*"
-					},
-					{
-						name: "**error$color [X]**",
-						value: "*Give's you a color with the number [X] if availble in the server*"
-					}
-				],
-				timestamp: new Date()
-			}
+			let embedMISC = new Discord.RichEmbed()
+			.setTitle("Misc Commands")
+			.setDescription("The command prefix is ${prefix}")
+			.addField("**error$invite**","*Create's a 24H invite link to the current server*")
+  message.channel.send(embedMISC)
+			
+	
+      }
 	   });
 client.on("message", msg => {
 if (msg.content.startsWith(prefix + "cal")) {
