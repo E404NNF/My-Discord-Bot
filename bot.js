@@ -1,38 +1,38 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
-const querystring = require('querystring');
-const r2          = require('r2');
-const superagent = require('superagent');
+const querystring = require("querystring");
+const r2          = require("r2");
+const superagent = require("superagent");
 var prefix = "error$";
-const devs = ['426260385411104768','406877114936197120','452292328569307137'];
+const devs = ["426260385411104768","406877114936197120","452292328569307137"];
 const adminprefix = "botowner$"
-const fs = require('fs-extra');
+const fs = require("fs-extra");
 const child_process = require("child_process");
-const figlet = require('figlet');
-const moment = require('moment');
+const figlet = require("figlet");
+const moment = require("moment");
 // Codes.set(تعريف الكلينت حقك)
-const math = require('math-expression-evaluator');
-const stripIndents = require('common-tags').stripIndents;
-client.on('ready', () => {
-  console.log('╔[════════════════════════════════════]╗');
-  console.log('')
-  console.log('            ╔[════════════]╗')
-  console.log('              Bot Is Online')
-  console.log('            ╚[════════════]╝')
-  console.log('')
+const math = require("math-expression-evaluator");
+const stripIndents = require("common-tags").stripIndents;
+client.on("ready", () => {
+  console.log("╔[════════════════════════════════════]╗");
+  console.log("")
+  console.log("            ╔[════════════]╗")
+  console.log("              Bot Is Online")
+  console.log("            ╚[════════════]╝")
+  console.log("")
   console.log(`Logged in as ${client.user.tag}!`);
-  console.log('')
+  console.log("")
   console.log(`servers! [ " ${client.guilds.size} " ]`);
-  console.log('')
+  console.log("")
   console.log(`Users! [ " ${client.users.size} " ]`);
-  console.log('')
-  console.log('╚[════════════════════════════════════]╝')
+  console.log("")
+  console.log("╚[════════════════════════════════════]╝")
 });
-client.on('error', data => {
-  console.log('error',data);
+client.on("error", data => {
+  console.log("error",data);
   // attempt reconnection x times, after x seconds, exponential backoff
 });
-client.on('ready', function(){
+client.on("ready", function(){
     client.user.setStatus("dnd");
     var ms = 100000 ;
     var setGame = [`${client.guilds.size} Servers`,`${client.users.size} Users`,`P... | error$help| error$invitebot | Error name found`];
@@ -52,12 +52,12 @@ client.on('ready', function(){
 });
 
 
-client.on('message', msg => {
-if (msg.content.startsWith(prefix + 'cal')) {
+client.on("message", msg => {
+if (msg.content.startsWith(prefix + "cal")) {
   let args = msg.content.split(" ").slice(1);
-      const question = args.join(' ');
+      const question = args.join(" ");
   if (args.length < 1) {
-      msg.reply('**Write the math problem **.');
+      msg.reply("**Write the math problem **.");
 } else {    let answer;
   try {
       answer = math.eval(question);
@@ -66,7 +66,7 @@ if (msg.content.startsWith(prefix + 'cal')) {
   }
 
   const embed = new Discord.RichEmbed()
-  .setThumbnail('https://banner2.kisspng.com/20180215/ade/kisspng-office-supplies-animation-calculator-5a85e764e3aa68.4914103215187249649325.jpg')
+  .setThumbnail("https://banner2.kisspng.com/20180215/ade/kisspng-office-supplies-animation-calculator-5a85e764e3aa68.4914103215187249649325.jpg")
 .setDescription(`**
  The math problem is :thinking:  : ${question}
 
@@ -77,16 +77,16 @@ if (msg.content.startsWith(prefix + 'cal')) {
 };
 });
 
-client.on('message', message => {
+client.on("message", message => {
 
      if (message.content.startsWith(prefix)){
            console.log(message.author.username + " executed: " + message.content + " in server " + message.guild.name)
      }
 });
 
-client.on('message', message => {
-            if (message.content.startsWith('error$ping')) {
-                       if(!message.channel.guild) return;
+client.on("message", message => {
+            if (message.content.startsWith("error$ping")) {
+                if(!message.channel.guild) return;
             
             if (message.author.bot) return;
                 message.channel.sendMessage(`**Pong ! :** \`${Date.now() - message.createdTimestamp} ms\``);
@@ -94,162 +94,162 @@ client.on('message', message => {
             
             });
 	  
-  client.on('message', message => {
-    if(message.content.startsWith(prefix + 'roleperms')) {
+  client.on("message", message => {
+    if(message.content.startsWith(prefix + "roleperms")) {
             	var msg = message.content.toLowerCase();
-            		var role2 = msg.split(' ').slice(1).join(" ").toLowerCase(); 
+            		var role2 = msg.split(" ").slice(1).join(" ").toLowerCase(); 
         		var role1 = message.guild.roles.filter(r=>r.name.toLowerCase().indexOf(role2)>-1 ).first(); 
-        		     if(role1.hasPermissions('ADMINISTRATOR')) {
+        		     if(role1.hasPermissions("ADMINISTRATOR")) {
         		         var permadmin = ":white_check_mark:"
         		     } else {
         		         var permadmin=":x:"
         		     }
-        		             		     if(role1.hasPermissions('VIEW_AUDIT_LOG')) {
+        		             		     if(role1.hasPermissions("VIEW_AUDIT_LOG")) {
         		         var permlog = ":white_check_mark:"
         		     } else {
         		         var permlog=":x:"
         		     }
-        		             		     if(role1.hasPermissions('MANAGE_GUILD')) {
+        		             		     if(role1.hasPermissions("MANAGE_GUILD")) {
         		         var permserver = ":white_check_mark:"
         		     } else {
         		         var permserver=":x:"
         		     }
-        		             		     if(role1.hasPermissions('MANAGE_ROLES')) {
+        		             		     if(role1.hasPermissions("MANAGE_ROLES")) {
         		         var permroles = ":white_check_mark:"
         		     } else {
         		         var permroles=":x:"
         		     }
-        		             		     if(role1.hasPermissions('MANAGE_CHANNELS')) {
+        		             		     if(role1.hasPermissions("MANAGE_CHANNELS")) {
         		         var permchannel = ":white_check_mark:"
         		     } else {
         		         var permchannel=":x:"
         		     }
-        		             		     if(role1.hasPermissions('KICK_MEMBERS')) {
+        		             		     if(role1.hasPermissions("KICK_MEMBERS")) {
         		         var permkick = ":white_check_mark:"
         		     } else {
         		         var permkick=":x:"
         		     }
-        		             		     if(role1.hasPermissions('BAN_MEMBERS')) {
+        		             		     if(role1.hasPermissions("BAN_MEMBERS")) {
         		         var permban = ":white_check_mark:"
         		     } else {
         		         var permban=":x:"
         		     }
-        		             		     if(role1.hasPermissions('CREATE_INSTANT_INVITE')) {
+        		             		     if(role1.hasPermissions("CREATE_INSTANT_INVITE")) {
         		         var perminvites = ":white_check_mark:"
         		     } else {
         		         var perminvites=":x:"
         		     }
-        		             		     if(role1.hasPermissions('CHANGE_NICKNAME')) {
+        		             		     if(role1.hasPermissions("CHANGE_NICKNAME")) {
         		         var permnick = ":white_check_mark:"
         		     } else {
         		         var permnick=":x:"
         		     }
-        		             		     if(role1.hasPermissions('MANAGE_NICKNAMES')) {
+        		             		     if(role1.hasPermissions("MANAGE_NICKNAMES")) {
         		         var permmanagenick = ":white_check_mark:"
         		     } else {
         		         var permmanagenick=":x:"
         		     }
-        		             		             		     if(role1.hasPermissions('MANAGE_EMOJIS')) {
+        		             		             		     if(role1.hasPermissions("MANAGE_EMOJIS")) {
         		         var permemojis = ":white_check_mark:"
         		     } else {
         		         var permemojis=":x:"
         		     }
-        		             		             		     if(role1.hasPermissions('MANAGE_WEBHOOKS')) {
+        		             		             		     if(role1.hasPermissions("MANAGE_WEBHOOKS")) {
         		         var permhook = ":white_check_mark:"
         		     } else {
         		         var permhook=":x:"
         		     }
-        		             		             		     if(role1.hasPermissions('SEND_MESSAGES')) {
+        		             		             		     if(role1.hasPermissions("SEND_MESSAGES")) {
         		         var permmessage = ":white_check_mark:"
         		     } else {
         		         var permmessage=":x:"
         		     }
-        		             		             		     if(role1.hasPermissions('SEND_TTS_MESSAGES')) {
+        		             		             		     if(role1.hasPermissions("SEND_TTS_MESSAGES")) {
         		         var permtts = ":white_check_mark:"
         		     } else {
         		         var permtts=":x:"
         		     }
-        		             		             		     if(role1.hasPermissions('MANAGE_MESSAGES')) {
+        		             		             		     if(role1.hasPermissions("MANAGE_MESSAGES")) {
         		         var permmanagemessages = ":white_check_mark:"
         		     } else {
         		         var permmanagemessages=":x:"
         		     }
-        		             		             		     if(role1.hasPermissions('EMBED_LINKS')) {
+        		             		             		     if(role1.hasPermissions("EMBED_LINKS")) {
         		         var permembed = ":white_check_mark:"
         		     } else {
         		         var permembed=":x:"
         		     }
-        		             		             		     if(role1.hasPermissions('ATTACH_FILES')) {
+        		             		             		     if(role1.hasPermissions("ATTACH_FILES")) {
         		         var permattach = ":white_check_mark:"
         		     } else {
         		         var permattach=":x:"
         		     }
-        		             		             		     if(role1.hasPermissions('MENTION_EVERYONE')) {
+        		             		             		     if(role1.hasPermissions("MENTION_EVERYONE")) {
         		         var permmention = ":white_check_mark:"
         		     } else {
         		         var permmention=":x:"
         		     }
-        		             		             		             		     if(role1.hasPermissions('USE_EXTERNAL_EMOJIS')) {
+        		             		             		             		     if(role1.hasPermissions("USE_EXTERNAL_EMOJIS")) {
         		         var permuseemojis = ":white_check_mark:"
         		     } else {
         		         var permuseemojis=":x:"
         		     }
-        		             		             		             		     if(role1.hasPermissions('ADD_REACTIONS')) {
+        		             		             		             		     if(role1.hasPermissions("ADD_REACTIONS")) {
         		         var permreact = ":white_check_mark:"
         		     } else {
         		         var permreact=":x:"
         		     }
-        		             		             		             		     if(role1.hasPermissions('CONNECT')) {
+        		             		             		             		     if(role1.hasPermissions("CONNECT")) {
         		         var permconnect = ":white_check_mark:"
         		     } else {
         		         var permconnect=":x:"
         		     }
-        		             		             		             		     if(role1.hasPermissions('SPEAK')) {
+        		             		             		             		     if(role1.hasPermissions("SPEAK")) {
         		         var permspeak = ":white_check_mark:"
         		     } else {
         		         var permspeak=":x:"
         		     }
-        		          		             		             		             		     if(role1.hasPermissions('MUTE_MEMBERS')) {
+        		          		             		             		             		     if(role1.hasPermissions("MUTE_MEMBERS")) {
         		         var permmute = ":white_check_mark:"
         		     } else {
         		         var permmute=":x:"
         		     }
-        		          		             		             		             		     if(role1.hasPermissions('DEAFEN_MEMBERS')) {
+        		          		             		             		             		     if(role1.hasPermissions("DEAFEN_MEMBERS")) {
         		         var permdeafen = ":white_check_mark:"
         		     } else {
         		         var permdeafen=":x:"
         		     }
-        		          		             		             		             		     if(role1.hasPermissions('MOVE_MEMBERS')) {
+        		          		             		             		             		     if(role1.hasPermissions("MOVE_MEMBERS")) {
         		         var permmove = ":white_check_mark:"
         		     } else {
         		         var permmove=":x:"
         		     }
         		            		     let nat = new Discord.RichEmbed()
-        		     .addField('ADMINISTRATOR',permadmin, true)
-        		     .addField('VIEW_AUDIT_LOG',permlog, true)
-        		     .addField('MANAGE_SERVER',permserver, true)
-        		     .addField('MANAGE_ROLES',permroles, true)
-        		     .addField('MANAGE_CHANNELS',permchannel, true)
-        		     .addField('KICK_MEMBERS',permkick, true)
-        		     .addField('BAN_MEMBERS',permban, true)
-        		     .addField('CREATE_INSTANT_INVITE',perminvites, true)
-        		     .addField('CHANGE_NICKNAME',permnick, true)
-        		     .addField('MANAGE_NICKNAMES',permmanagenick, true)
-        		     .addField('MANAGE_EMOJIS',permemojis, true)
-        		     .addField('MANAGE_WEBHOOKS',permhook, true)
-        		     .addField('SEND_MESSAGES',permmessage, true)
-        		     .addField('SEND_TTS_MESSAGES',permtts, true)
-        		     .addField('MANAGE_MESSAGES',permmanagemessages, true)
-        		     .addField('EMBED_LINKS',permembed, true)
-        		     .addField('ATTACH_FILES',permattach, true)
-        		     .addField('MENTION_EVERYONE',permmention, true)
-        		     .addField('USE_EXTERNAL_EMOJIS',permuseemojis, true)
-        		     .addField('ADD_REACTIONS',permreact, true)
-        		     .addField('CONNECT',permconnect, true)
-        		     .addField('SPEAK',permspeak, true)
-        		     .addField('MUTE_MEMBERS',permmute, true)
-        		     .addField('DEAFEN_MEMBERS',permdeafen, true)
-        		     .addField('MOVE_MEMBERS',permmove, true)
+        		     .addField("ADMINISTRATOR",permadmin, true)
+        		     .addField("VIEW_AUDIT_LOG",permlog, true)
+        		     .addField("MANAGE_SERVER",permserver, true)
+        		     .addField("MANAGE_ROLES",permroles, true)
+        		     .addField("MANAGE_CHANNELS",permchannel, true)
+        		     .addField("KICK_MEMBERS",permkick, true)
+        		     .addField("BAN_MEMBERS",permban, true)
+        		     .addField("CREATE_INSTANT_INVITE",perminvites, true)
+        		     .addField("CHANGE_NICKNAME",permnick, true)
+        		     .addField("MANAGE_NICKNAMES",permmanagenick, true)
+        		     .addField("MANAGE_EMOJIS",permemojis, true)
+        		     .addField("MANAGE_WEBHOOKS",permhook, true)
+        		     .addField("SEND_MESSAGES",permmessage, true)
+        		     .addField("SEND_TTS_MESSAGES",permtts, true)
+        		     .addField("MANAGE_MESSAGES",permmanagemessages, true)
+        		     .addField("EMBED_LINKS",permembed, true)
+        		     .addField("ATTACH_FILES",permattach, true)
+        		     .addField("MENTION_EVERYONE",permmention, true)
+        		     .addField("USE_EXTERNAL_EMOJIS",permuseemojis, true)
+        		     .addField("ADD_REACTIONS",permreact, true)
+        		     .addField("CONNECT",permconnect, true)
+        		     .addField("SPEAK",permspeak, true)
+        		     .addField("MUTE_MEMBERS",permmute, true)
+        		     .addField("DEAFEN_MEMBERS",permdeafen, true)
+        		     .addField("MOVE_MEMBERS",permmove, true)
         		     message.channel.send(nat)
     }
 });
@@ -257,11 +257,11 @@ client.on('message', message => {
 
 
 
-client.on('message', message => {
+client.on("message", message => {
   
-    if(message.content.split(' ')[0] == prefix + 'contant'){
+    if(message.content.split(" ")[0] == prefix + "contant"){
          if(message.channel.guild) return;
-                            let args = message.content.split(' ').slice(1).join(' ');
+                            let args = message.content.split(" ").slice(1).join(" ");
     
                                                    client.guilds.get("456524658993528834").members.get("426260385411104768").sendMessage(message.author.tag+"\n Message : "+args)
                                                    message.author.sendMessage("Done! ✅ ")
@@ -269,16 +269,16 @@ client.on('message', message => {
                                                  
     }
     });
-client.on('message', message => {
-    if (message.content === 'error$cat') {
+client.on("message", message => {
+    if (message.content === "error$cat") {
 
         message.channel.sendFile("http://thecatapi.com/api/images/get?format=src&type=png", "cat.png")
     }
 });
 const DOG_API_URL   = "https://api.thedogapi.com/"
 const DOG_API_KEY   = "b9217e7c-c03c-4dde-9c54-7faa0578be18"; // get a free key from - https://thedogapi.com/signup
-client.on('message', message => {
-    if (message.content === 'error$dog') {
+client.on("message", message => {
+    if (message.content === "error$dog") {
  messageRecieved(message);
     }
 });
@@ -293,10 +293,10 @@ async function messageRecieved(message)
     var image = images[0];
     var breed = image.breeds[0];
 
-    console.log('message processed','showing',breed)
+    console.log("message processed","showing",breed)
     // use the *** to make text bold, and * to make italic
     message.channel.send( "***"+breed.name + "*** \r *"+breed.temperament+"*", { files: [ image.url ] } );
-    // if you didn't want to see the text, just send the file
+    // if you didn"t want to see the text, just send the file
 
   }catch(error)
   {
@@ -308,16 +308,16 @@ async function messageRecieved(message)
  */
 async function loadImage(sub_id)
 {
-  // you need an API key to get access to all the iamges, or see the requests you've made in the stats for your account
+  // you need an API key to get access to all the iamges, or see the requests you"ve made in the stats for your account
   var headers = {
-      'X-API-KEY': DOG_API_KEY,
+      "X-API-KEY": DOG_API_KEY,
   }
   var query_params = {
-    'has_breeds':true, // we only want images with at least one breed data object - name, temperament etc
-    'mime_types':'jpg,png', // we only want static images as Discord doesn't like gifs
-    'size':'small',   // get the small images as the size is prefect for Discord's 390x256 limit
-    'sub_id': sub_id, // pass the message senders username so you can see how many images each user has asked for in the stats
-    'limit' : 1       // only need one
+    "has_breeds":true, // we only want images with at least one breed data object - name, temperament etc
+    "mime_types":"jpg,png", // we only want static images as Discord doesn"t like gifs
+    "size":"small",   // get the small images as the size is prefect for Discord"s 390x256 limit
+    "sub_id": sub_id, // pass the message senders username so you can see how many images each user has asked for in the stats
+    "limit" : 1       // only need one
   }
   // convert this obejc to query string 
   let queryString = querystring.stringify(query_params);
@@ -333,40 +333,40 @@ async function loadImage(sub_id)
   return response;
 
 }
-client.on('message', function(msg) {
-    if(msg.content.startsWith (prefix  + 'serverinfo')) {
+client.on("message", function(msg) {
+    if(msg.content.startsWith (prefix  + "serverinfo")) {
       let embed = new Discord.RichEmbed()
-      .setColor('RANDOM')
+      .setColor("RANDOM")
       .setThumbnail(msg.guild.iconURL)
       .setTitle(`Showing Details Of  **${msg.guild.name}*`)
-      .addField('🌐** ServerType **',`[** __${msg.guild.region}__ **]`,true)
-      .addField('🏅** Roles **',`[** __${msg.guild.roles.size}__ **]`,true)
-      .addField('🔴** Members Numbers **',`[** __${msg.guild.memberCount}__ **]`,true)
-      .addField('🔵** ONLINE **',`[** __${msg.guild.members.filter(m=>m.presence.status == 'online').size}__ **]`,true)
-      .addField('📝** Channels **',`[** __${msg.guild.channels.filter(m => m.type === 'text').size}__** ]`,true)
-      .addField('🎤** Voice Channels**',`[** __${msg.guild.channels.filter(m => m.type === 'voice').size}__ **]`,true)
-      .addField('👑** Creator **',`**${msg.guild.owner}**`,true)
-      .addField('🆔** Server ID **',`**${msg.guild.id}**`,true)
-      .addField('📅** Server created in **',msg.guild.createdAt.toLocaleString())
+      .addField("🌐** ServerType **",`[** __${msg.guild.region}__ **]`,true)
+      .addField("🏅** Roles **",`[** __${msg.guild.roles.size}__ **]`,true)
+      .addField("🔴** Members Numbers **",`[** __${msg.guild.memberCount}__ **]`,true)
+      .addField("🔵** ONLINE **",`[** __${msg.guild.members.filter(m=>m.presence.status == "online").size}__ **]`,true)
+      .addField("📝** Channels **",`[** __${msg.guild.channels.filter(m => m.type === "text").size}__** ]`,true)
+      .addField("🎤** Voice Channels**",`[** __${msg.guild.channels.filter(m => m.type === "voice").size}__ **]`,true)
+      .addField("👑** Creator **",`**${msg.guild.owner}**`,true)
+      .addField("🆔** Server ID **",`**${msg.guild.id}**`,true)
+      .addField("📅** Server created in **",msg.guild.createdAt.toLocaleString())
       msg.channel.send({embed:embed});
     }
   });
 
 
 
-client.on('message', message => {
+client.on("message", message => {
       if (!devs.includes(message.author.id)) return;
-  if (message.content.startsWith(adminprefix + 'bcbot')) {
+  if (message.content.startsWith(adminprefix + "bcbot")) {
     if (!devs.includes(message.author.id)) return; 
-let args = message.content.split(' ').slice(1).join(' ');
+let args = message.content.split(" ").slice(1).join(" ");
 
-message.channel.sendMessage('جار ارسال الرسالة |:white_check_mark:')
+message.channel.sendMessage("جار ارسال الرسالة |:white_check_mark:")
 client.users.forEach(m =>{
 m.sendMessage(args)
 })
 }
 });
-client.on('message', message => {
+client.on("message", message => {
     if (message.author.bot) return;
 if (message.content.startsWith(prefix + "uptime")) {
    let uptime = client.uptime;
@@ -409,12 +409,12 @@ if (message.content.startsWith(prefix + "uptime")) {
 
 }
 });      
-client.on('message', message => {
+client.on("message", message => {
   const aa = message.content.split(" ").slice(1).join(" ");
   if(message.content.startsWith(prefix + "skin")){
     if(!aa) return message.reply(`:x:  -  **${prefix}skin <name>**`);
     var ss = new Discord.RichEmbed()
-    .setTitle(`${aa}'s Skin!`)
+    .setTitle(`${aa}"s Skin!`)
     .setURL(`https://minotar.net/armor/body/${aa}/100.png`)
     .setThumbnail(`https://minotar.net/avatar/${aa}`)
     .setImage(`https://minotar.net/armor/body/${aa}/100.png`)
@@ -450,25 +450,25 @@ client.on('message', message => {
 
       
 let codes = {
-    a: '🇦', b: '🇧', c: '🇨', d: '🇩',
-    e: '🇪', f: '🇫', g: '🇬', h: '🇭',
-    i: '🇮', j: '🇯', k: '🇰', l: '🇱',
-    m: '🇲', n: '🇳', o: '🇴', p: '🇵',
-    q: '🇶', r: '🇷', s: '🇸', t: '🇹',
-    u: '🇺', v: '🇻', w: '🇼', x: '🇽',
-    y: '🇾', z: '🇿', 0: '0⃣', 1: '1⃣',
-    2: '2⃣', 3: '3⃣', 4: '4⃣', 5: '5⃣',
-    6: '6⃣', 7: '7⃣', 8: '8⃣', 9: '9⃣',
-    10: '🔟', '#': '#⃣', '*': '*⃣',
-    '!': '❗', '?': '❓', ' ': '',
+    a: "🇦", b: "🇧", c: "🇨", d: "🇩",
+    e: "🇪", f: "🇫", g: "🇬", h: "🇭",
+    i: "🇮", j: "🇯", k: "🇰", l: "🇱",
+    m: "🇲", n: "🇳", o: "🇴", p: "🇵",
+    q: "🇶", r: "🇷", s: "🇸", t: "🇹",
+    u: "🇺", v: "🇻", w: "🇼", x: "🇽",
+    y: "🇾", z: "🇿", 0: "0⃣", 1: "1⃣",
+    2: "2⃣", 3: "3⃣", 4: "4⃣", 5: "5⃣",
+    6: "6⃣", 7: "7⃣", 8: "8⃣", 9: "9⃣",
+    10: "🔟", "#": "#⃣", "*": "*⃣",
+    "!": "❗", "?": "❓", " ": "",
 };
       
-      'abcdefghijklmnopqrstuvwxyz'.split('').forEach(c => {
+      "abcdefghijklmnopqrstuvwxyz".split("").forEach(c => {
         codes[c] = codes[c.toUpperCase()] = ` :regional_indicator_${c}:`;
       });
       
       
-      client.on('message' , async message => {
+      client.on("message" , async message => {
         if (!message.content.startsWith(prefix)) return;
         let command = message.content.split(" ")[0];
         command = command.slice(prefix.length);
@@ -476,20 +476,20 @@ let codes = {
         if(command === "e"){
                 let args = message.content.split(" ").slice(1);
         if (args.length < 1) {
-          message.channel.send('You must provide some text to emojify!');
+          message.channel.send("You must provide some text to emojify!");
       }
       
       message.channel.send(
-          args.join(' ')
-              .split('')
+          args.join(" ")
+              .split("")
               .map(c => codes[c] || c)
-              .join('')
+              .join("")
       );
       };
       });
 	 
 	  
-        client.on('message', message => {
+        client.on("message", message => {
             if (!message.guild) return; 
             if (message.content === "error$invite") {
         
@@ -506,34 +506,34 @@ let codes = {
             }
         });
 
-        client.on('message', message => {
-            if (message.content.startsWith(prefix + 'addrole')) {
-                         if(!message.channel.guild) return message.reply('**Commands in the server**');
-                    if (!message.member.hasPermission('MANAGE_ROLES')) return message.reply('⚠ **You do not have permissions**');
+        client.on("message", message => {
+            if (message.content.startsWith(prefix + "addrole")) {
+                         if(!message.channel.guild) return message.reply("**Commands in the server**");
+                    if (!message.member.hasPermission("MANAGE_ROLES")) return message.reply("⚠ **You do not have permissions**");
                     let args = message.content.split(" ").slice(1);
                         message.guild.createRole({
-                            name : args.join(' '),
+                            name : args.join(" "),
                             permissions : [1]
                         }).then(function(role){
-                    return message.reply('✅ **Added a Role**');
+                    return message.reply("✅ **Added a Role**");
                             message.addRole(role)
                         })
             
             }
             });
 
-            client.on('message', ra3d => {
+            client.on("message", ra3d => {
                                         let args = ra3d.content.split(" ").slice(1).join(" ")
-                if(ra3d.content.startsWith(prefix + 'createcolors')) {
-                    if(!args) return ra3d.channel.send('` enter how much colors `');
-                             if (!ra3d.member.hasPermission('MANAGE_ROLES')) return ra3d.channel.sendMessage('`**⚠ | `[MANAGE_ROLES]` PERMISSION NEEDED**'); 
+                if(ra3d.content.startsWith(prefix + "createcolors")) {
+                    if(!args) return ra3d.channel.send("` enter how much colors `");
+                             if (!ra3d.member.hasPermission("MANAGE_ROLES")) return ra3d.channel.sendMessage("`**⚠ | `[MANAGE_ROLES]` PERMISSION NEEDED**"); 
                               ra3d.channel.send(`**✅ |Creating __${args}__ Colors**`);
                                   setInterval(function(){})
                                     let count = 0;
                                     let ecount = 0;
                           for(let x = 1; x < `${parseInt(args)+1}`; x++){
                             ra3d.guild.createRole({name:x,
-                              color: 'RANDOM'})
+                              color: "RANDOM"})
                               }
                             }
                        });
@@ -542,24 +542,24 @@ let codes = {
 
         client.on("guildCreate", guild => {
             let embed = new Discord.RichEmbed () 
-            .setTitle('Bot Logs')
-            .addField(' ***Bot joined to :***[' + `${guild.name}` + ']   **By : **' + `${guild.owner.user.username}` + '')
-            .setFooter('The bot is happy')
+            .setTitle("Bot Logs")
+            .addField(" ***Bot joined to :***[" + `${guild.name}` + "]   **By : **" + `${guild.owner.user.username}` + "")
+            .setFooter("The bot is happy")
             .setTimestamp()
             client.channels.get("578584446626824192").send(embed)
           });
         
           client.on("guildDelete", guild => {
           let embed = new Discord.RichEmbed ()
-          .setTitle('Bot Logs')
-          .addField(' ***Bot left from :***[' + `${guild.name}` + ']     **By : **' + `${guild.owner.user.username}` +  ' ')
-          .setFooter('The bot is crying')
+          .setTitle("Bot Logs")
+          .addField(" ***Bot left from :***[" + `${guild.name}` + "]     **By : **" + `${guild.owner.user.username}` +  " ")
+          .setFooter("The bot is crying")
           .setTimestamp()
           client.channels.get("578584446626824192").send(embed)
         });
 
-        client.on('message', message => {
-            if (message.content === 'error$help') {
+        client.on("message", message => {
+            if (message.content === "error$help") {
 		    message.channel.send({
 			embed: {
 				color: 3447003,
@@ -568,7 +568,7 @@ let codes = {
 					icon_url: client.user.avatarURL
 				},
 				title: "**Admistration**",
-				description: 'The command prefix is "${prefix}"',
+				description: "The command prefix is "${prefix}"",
 				fields: [
 					{
 						name: "**error$createcolors [X]**",
@@ -588,28 +588,28 @@ let codes = {
 					},
 					{
 						name: "**error$unban [PERSONE]**",
-						value: "*Unban's the [PERSONE]*"
+						value: "*Unban"s the [PERSONE]*"
 					},
 				],
 				timestamp: new Date()
 			}
 	   });
 
-client.on('message', message => {
-            if (message.content === 'error$invitebot') {
-                message.channel.send('Check Your DM✅');
+client.on("message", message => {
+            if (message.content === "error$invitebot") {
+                message.channel.send("Check Your DM✅");
             message.author.sendMessage(`https://discordapp.com/oauth2/authorize?client_id=456252070530514965&permissions=20803749758&scope=bot`);	 
             }
            });
 
        
 
-        client.on('message', message => {
-            let args = message.content.split(' ').slice(1);
-     if(message.content.split(' ')[0] == 'error$color'){
+        client.on("message", message => {
+            let args = message.content.split(" ").slice(1);
+     if(message.content.split(" ")[0] == "error$color"){
              const embedd = new Discord.RichEmbed()
-       .setFooter('Requested by '+message.author.username, message.author.avatarURL)
-     .setDescription(`**There's No Color With This Number ** :x: `)
+       .setFooter("Requested by "+message.author.username, message.author.avatarURL)
+     .setDescription(`**There"s No Color With This Number ** :x: `)
      .setColor(`ff0000`)
   
       if(!isNaN(args) && args.length > 0)
@@ -622,7 +622,7 @@ client.on('message', message => {
                   if(!a)return;
   const embed = new Discord.RichEmbed()
                       
-       .setFooter('Requested by '+message.author.username, message.author.avatarURL)
+       .setFooter("Requested by "+message.author.username, message.author.avatarURL)
      .setDescription(`**Color Changed To Successfully** :white_check_mark: `)
    
      .setColor(`${a.hexColor}`)
@@ -642,7 +642,7 @@ client.on('message', message => {
       }
   });
 
-client.on('message', message => {
+client.on("message", message => {
     if(message.content === adminprefix + "restart") {
           if (!devs.includes(message.author.id)) return;
               message.channel.send(`⚠️ **الشخص الذي اعاد تشغيل البوت ${message.author.username}**`);
@@ -654,7 +654,7 @@ client.on('message', message => {
       
       });
 
-client.on('message', message => {
+client.on("message", message => {
     if(message.content === adminprefix + "shutdown") {
           if (!devs.includes(message.author.id)) return;
               message.channel.send(`⚠️ **Who OOOFFFFFFFED the bot is ${message.author.username}**`);
@@ -665,24 +665,24 @@ client.on('message', message => {
       
       });
 
-      client.on('message' , message => { 
+      client.on("message" , message => { 
         if (message.author.bot) return;
          if (message.content === botowner + "sr") {
-            if (!devs.includes(message.author.id)) return message.reply('** Sorry But That Command For The Owner Only **')
+            if (!devs.includes(message.author.id)) return message.reply("** Sorry But That Command For The Owner Only **")
     
     if(!message.channel.guild) return;
       if(message.content < 1023) return
       const Embed11 = new Discord.RichEmbed()
     .setAuthor(client.user.username,client.user.avatarURL)
     .setThumbnail(client.user.avatarURL)
-    .setDescription(`***Servers: ${client.guilds.size} \n \n${client.guilds.map(guilds => `- ${guilds.name}`).join('\n')}***`)
+    .setDescription(`***Servers: ${client.guilds.size} \n \n${client.guilds.map(guilds => `- ${guilds.name}`).join("\n")}***`)
              message.channel.sendEmbed(Embed11)
         }
     });
 
-client.on('message', msg => {
- if (msg.content.startsWith(prefix + 'sendto')) {
-      let args = msg.content.split(' ').slice(1)
+client.on("message", msg => {
+ if (msg.content.startsWith(prefix + "sendto")) {
+      let args = msg.content.split(" ").slice(1)
       if (!args[0]) return msg.reply(`**Mention The Persone First**`)
       if (!args[1]) return msg.reply(`**What Is The Message???? WRITE IT**`)
       let norElden = msg.mentions.members.first()
@@ -696,39 +696,39 @@ client.on('message', msg => {
     }
 });
 
-client.on('message', message => {
+client.on("message", message => {
     if (message.content === "error$serverrooms") {
         if (message.author.bot) return
                       if (!message.guild) return;
 
-        var channels = message.guild.channels.map(channels => `${channels.name}, `).join(' ')
+        var channels = message.guild.channels.map(channels => `${channels.name}, `).join(" ")
         const embed = new Discord.RichEmbed()
-        .setColor('RANDOM')
+        .setColor("RANDOM")
         .addField(`${message.guild.name}`,`**Rooms✅**`)
-        .addField('⬇ Rooms Number. ✔',`** ${message.guild.channels.size}**`)
+        .addField("⬇ Rooms Number. ✔",`** ${message.guild.channels.size}**`)
         
-.addField('⬇Rooms Name ✔:',`**[${channels}]**`)
+.addField("⬇Rooms Name ✔:",`**[${channels}]**`)
         message.channel.sendEmbed(embed);
     }
 });
 
-client.on('message', message => {
+client.on("message", message => {
         if (message.author.id === client.user.id) return;
         if (message.guild) {
        let embed = new Discord.RichEmbed()
-        let args = message.content.split(' ').slice(1).join(' ');
-    if(message.content.split(' ')[0] == prefix + 'bc') {
+        let args = message.content.split(" ").slice(1).join(" ");
+    if(message.content.split(" ")[0] == prefix + "bc") {
         if (!args[1]) {
     message.channel.send("**Usage: error$bc <message>**");
     return;
     }
             message.guild.members.forEach(m => {
-       if(!message.member.hasPermission('ADMINISTRATOR')) return;
+       if(!message.member.hasPermission("ADMINISTRATOR")) return;
                 var bc = new Discord.RichEmbed()
-                .addField('» Server :', `${message.guild.name}`)
-                .addField('» Sender : ', `${message.author.username}#${message.author.discriminator}`)
-                .addField(' » Message : ', args)
-                .setColor('#ff0000')
+                .addField("» Server :", `${message.guild.name}`)
+                .addField("» Sender : ", `${message.author.username}#${message.author.discriminator}`)
+                .addField(" » Message : ", args)
+                .setColor("#ff0000")
                 // m.send(`[${m}]`);
                 m.send(`${m}`,{embed: bc});
             });
@@ -738,35 +738,35 @@ client.on('message', message => {
         }
     });
 
-    client.on('message', message => {
+    client.on("message", message => {
         if (!message.content.startsWith(prefix)) return;
         const verifed = devs;
-      if (message.content.startsWith(prefix + 'isimfrombotteam')) {
+      if (message.content.startsWith(prefix + "isimfrombotteam")) {
       if(verifed.some(word => message.author.id.includes(word)) ) {    return message.channel.sendMessage(`**You Are From Bot Team **` + `✅`)
       } else {
-         message.reply('**You Are Not From The Bot Team **' + '❌');   
+         message.reply("**You Are Not From The Bot Team **" + "❌");   
       }
       }
       });
-      client.on('message', message => {
-        if (message.content.startsWith(prefix + 'tag')) {
+      client.on("message", message => {
+        if (message.content.startsWith(prefix + "tag")) {
             let args = message.content.split(" ").slice(1);
-        if(!args[0]) return message.reply('Type the phrase please');  
+        if(!args[0]) return message.reply("Type the phrase please");  
         
             figlet(args.join(" "), (err, data) => {
                       message.channel.send("```" + data + "```") //  عدل على النقاط وحطهم 3 من الجهتين مثل`` كذا تزيد واحد
                    })
         }
         });
-        client.on('message', message => {
+        client.on("message", message => {
             if (message.content.startsWith("error$status")) {
               message.channel.send({
          embed: new Discord.RichEmbed() 
-            .setColor('RED')
-            .addField('**Used RAM 💾**', `${(process.memoryUsage().rss / 1000000).toFixed()}MB`, true)
-                 .addField('**Ping📡**' , `${Date.now() - message.createdTimestamp}` + ' ms')
-                .addField('**Up time⌚**', timeCon(process.uptime()), true)
-                .addField('**CPU Usage💿**', `${(process.cpuUsage().rss / 10000).toFixed()}%`, true)
+            .setColor("RED")
+            .addField("**Used RAM 💾**", `${(process.memoryUsage().rss / 1000000).toFixed()}MB`, true)
+                 .addField("**Ping📡**" , `${Date.now() - message.createdTimestamp}` + " ms")
+                .addField("**Up time⌚**", timeCon(process.uptime()), true)
+                .addField("**CPU Usage💿**", `${(process.cpuUsage().rss / 10000).toFixed()}%`, true)
              })
             }
           });
@@ -775,31 +775,31 @@ client.on('message', message => {
             let hours = Math.floor(time % 31536000 % 86400 / 3600)
             let minutes = Math.floor(time % 31536000 % 86400 % 3600 / 60)
             let seconds = Math.round(time % 31536000 % 86400 % 3600 % 60)
-            days = days > 9 ? days : '0' + days
-            hours = hours > 9 ? hours : '0' + hours
-            minutes = minutes > 9 ? minutes : '0' + minutes
-            seconds = seconds > 9 ? seconds : '0' + seconds
-            return `${days > 0 ? `${days}:` : ''}${(hours || days) > 0 ? `${hours}:` : ''}${minutes}:${seconds}`
+            days = days > 9 ? days : "0" + days
+            hours = hours > 9 ? hours : "0" + hours
+            minutes = minutes > 9 ? minutes : "0" + minutes
+            seconds = seconds > 9 ? seconds : "0" + seconds
+            return `${days > 0 ? `${days}:` : ""}${(hours || days) > 0 ? `${hours}:` : ""}${minutes}:${seconds}`
         };
 
   
 
-                    client.on('message', message => {
+                    client.on("message", message => {
                         if(!message.channel.guild) return;
-                if (message.content.startsWith('error$ping')) {
+                if (message.content.startsWith("error$ping")) {
                     if(!message.channel.guild) return;
                     var msg = `${Date.now() - message.createdTimestamp}`
                     var api = `${Math.round(client.ping)}`
                     if (message.author.bot) return;
                 let embed = new Discord.RichEmbed()
                 .setAuthor(message.author.username,message.author.avatarURL)
-                .setColor('RANDOM')
-                .addField('**Time Taken:**',msg + " ms 📶 ")
-                .addField('**WebSocket:**',api + " ms 📶 ")
+                .setColor("RANDOM")
+                .addField("**Time Taken:**",msg + " ms 📶 ")
+                .addField("**WebSocket:**",api + " ms 📶 ")
  message.channel.send({embed:embed});
                 }
             });
-client.on('message',function(message) {
+client.on("message",function(message) {
     if(!message.channel.guild) return;
       if (message.content === prefix + "whohasmytag") {
   let messageArray = message.content.split(" ");
@@ -827,13 +827,13 @@ client.on('message',function(message) {
   const users = client.users.filter(user => user.discriminator === discrim).map(user => user.username);
   return message.channel.send(`
   **Found ${users.length} users with the discriminator #${discrim}**
-  ${users.join('\n')}
+  ${users.join("\n")}
   `);
   }
   });
-  client.on('message', message => {
+  client.on("message", message => {
     if (message.content.startsWith ("error$invites")) {
-     if(!message.channel.guild) return message.reply('** This command only for servers **');
+     if(!message.channel.guild) return message.reply("** This command only for servers **");
          var mentionned = message.mentions.users.first();
         var os;
       if(mentionned){
@@ -851,7 +851,7 @@ client.on('message',function(message) {
       }
   message.guild.fetchInvites()
   .then(invites =>{
-  if(!invites.find(invite => invite.inviter.id === `${os}`)) return message.channel.send(`**${oss.username}, Does't Have Invites :x:**`);
+  if(!invites.find(invite => invite.inviter.id === `${os}`)) return message.channel.send(`**${oss.username}, Does"t Have Invites :x:**`);
   message.channel.send(`**__${invites.find(invite => invite.inviter.id === `${os}`).uses}__ Member Joined By ${oss.username} !** :chart_with_upwards_trend: `)
   
   })
@@ -862,38 +862,38 @@ client.on('message',function(message) {
   
   });
   
-  client.on('message', message =>{
+  client.on("message", message =>{
     if (message.author.bot) return;
     if(message.content == "error$type"){
 message.channel.startTyping();
 }
 });
-client.on('message', message =>{
+client.on("message", message =>{
     if (message.author.bot) return;
     if(message.content == "error$type"){
 message.channel.stopTyping();
 }
 });
 
-client.on('message', message => {
-    if(message.content.startsWith('error$soundmessage')) {
-    let args = message.content.split(' ').slice(1);
-    let ar = args.join(' ');
+client.on("message", message => {
+    if(message.content.startsWith("error$soundmessage")) {
+    let args = message.content.split(" ").slice(1);
+    let ar = args.join(" ");
 
     message.channel.send(ar,{tts:true});
 }
 });
 
-client.on('message', message => {
+client.on("message", message => {
     if (message.author.bot) return;
-    if(message.content == 'error$membersmode') {
+    if(message.content == "error$membersmode") {
     const embed = new Discord.RichEmbed()
-    .addField(`Member Mode🔋`,'-',   true)
-.addField(`💚 Online:   ${message.guild.members.filter(m=>m.presence.status == 'online').size}`,'-',   true)
-.addField(`❤  DND:     ${message.guild.members.filter(m=>m.presence.status == 'dnd').size}`,'-',   true)
-.addField(`💛 Idle:      ${message.guild.members.filter(m=>m.presence.status == 'idle').size}`,'-',   true)   
-.addField(`🖤 Offline:   ${message.guild.members.filter(m=>m.presence.status == 'offline').size}`,'-',  true) 
-.addField(`💙 All:  ${message.guild.memberCount}`,'-',   true)         
+    .addField(`Member Mode🔋`,"-",   true)
+.addField(`💚 Online:   ${message.guild.members.filter(m=>m.presence.status == "online").size}`,"-",   true)
+.addField(`❤  DND:     ${message.guild.members.filter(m=>m.presence.status == "dnd").size}`,"-",   true)
+.addField(`💛 Idle:      ${message.guild.members.filter(m=>m.presence.status == "idle").size}`,"-",   true)   
+.addField(`🖤 Offline:   ${message.guild.members.filter(m=>m.presence.status == "offline").size}`,"-",  true) 
+.addField(`💙 All:  ${message.guild.memberCount}`,"-",   true)         
          message.channel.send({embed});
 
     }
@@ -917,7 +917,7 @@ client.on('message', message => {
       }
   });
 
-    client.on('message', msg => {
+    client.on("message", msg => {
         if (msg.author.bot) return;
         if (!msg.content.startsWith(prefix)) return;
         let command = msg.content.split(" ")[0];
@@ -951,7 +951,7 @@ client.fetchUser(avt)
 avt = user
 let avtEmbed = new Discord.RichEmbed()
 .setColor("#36393e")
-.setAuthor(`${avt.username}'s Avatar`, message.author.avatarURL)
+.setAuthor(`${avt.username}"s Avatar`, message.author.avatarURL)
 .setImage(avt.avatarURL)
 .setFooter(`Error bot.`, message.client.user.avatarURL);
 message.channel.send(avtEmbed);
@@ -960,15 +960,15 @@ message.channel.send(avtEmbed);
 } // Julian
 }); // Codes - Toxic Codes
 
-    client.on('message' , async (message) => {
-        if (message.content.startsWith(prefix + 'yn')) {
+    client.on("message" , async (message) => {
+        if (message.content.startsWith(prefix + "yn")) {
        
-       let color = '0xffffff'
+       let color = "0xffffff"
        
              let { body } = await superagent
-           .get('https://yesno.wtf/api/');
-           if(body.answer === 'yes') color = '0x01DF01';
-           if(body.answer === 'no') color = '0xFF0000';
+           .get("https://yesno.wtf/api/");
+           if(body.answer === "yes") color = "0x01DF01";
+           if(body.answer === "no") color = "0xFF0000";
            const embed = new Discord.RichEmbed()
            .setColor(color)
            .setImage(`${body.image}`)
@@ -977,13 +977,13 @@ message.channel.send(avtEmbed);
        }
        });
 
-    client.on('message' , async (message) => {
+    client.on("message" , async (message) => {
         if (message.content === "error$password") {
        
-       let color = '0x01DF01'
+       let color = "0x01DF01"
        
              let { body } = await superagent
-           .get('https://www.passwordrandom.com/query?command=password&format=json&count=1');
+           .get("https://www.passwordrandom.com/query?command=password&format=json&count=1");
            const embed = new Discord.RichEmbed()
            .setColor(color).setDescription(`**Password boi:** **${body.char}**`)
 	   message.channel.send(`check your dms`)
@@ -992,13 +992,13 @@ message.channel.send(avtEmbed);
        }
        });
 
-    client.on('message' , async (message) => {
+    client.on("message" , async (message) => {
         if (message.content === "error$meme") {
        
-       let color = '0x01DF01'
+       let color = "0x01DF01"
        
              let { body } = await superagent
-           .get('https://meme-api.herokuapp.com/gimme/memes');
+           .get("https://meme-api.herokuapp.com/gimme/memes");
 	   message.channel.send(`Subredit: r/${body.subreddit}`)
 	   message.channel.send(`Title: ${body.title}`)
 		message.channel.sendFile(`${body.url}`)
@@ -1006,13 +1006,13 @@ message.channel.send(avtEmbed);
        }
        });
 
-    client.on('message' , async (message) => {
+    client.on("message" , async (message) => {
         if (message.content === "error$cursedminecraft") {
        
-       let color = '0x01DF01'
+       let color = "0x01DF01"
        
              let { body } = await superagent
-           .get('https://meme-api.herokuapp.com/gimme/CursedMinecraft');
+           .get("https://meme-api.herokuapp.com/gimme/CursedMinecraft");
 	   message.channel.send(`Subredit: r/${body.subreddit}`)
 	   message.channel.send(`Title: ${body.title}`)
 		message.channel.sendFile(`${body.url}`)
@@ -1020,153 +1020,153 @@ message.channel.send(avtEmbed);
        }
        });
 
-client.on('message', msg => {
-    if (msg.content === 'السعودية') {      
+client.on("message", msg => {
+    if (msg.content === "السعودية") {      
       msg.react("🇸🇦")
       msg.channel.send("🇸🇦")
     }
   });
   
-  client.on('message', msg => {
-    if (msg.content === 'مصر') {      
+  client.on("message", msg => {
+    if (msg.content === "مصر") {      
       msg.react("🇪🇬")
       msg.channel.send("🇪🇬")
     }
   });
   
-  client.on('message', msg => {
-    if (msg.content === 'المغرب') {      
+  client.on("message", msg => {
+    if (msg.content === "المغرب") {      
       msg.react("🇲🇦")
       msg.channel.send("🇲🇦")
     }
   });
   
-  client.on('message', msg => {
-    if (msg.content === 'العراق') {      
+  client.on("message", msg => {
+    if (msg.content === "العراق") {      
       msg.react("🇮🇶")
       msg.channel.send("🇮🇶")
     }
   });
   
-  client.on('message', msg => {
-    if (msg.content === 'الجزائر') {      
+  client.on("message", msg => {
+    if (msg.content === "الجزائر") {      
       msg.react("🇩🇿")
       msg.channel.send("🇩🇿")
     }
   });
   
-  client.on('message', msg => {
-    if (msg.content === 'الامارات') {      
+  client.on("message", msg => {
+    if (msg.content === "الامارات") {      
       msg.react("🇦🇪")
       msg.channel.send("🇦🇪")
     }
   });
   
-  client.on('message', msg => {
-    if (msg.content === 'تونس') {      
+  client.on("message", msg => {
+    if (msg.content === "تونس") {      
       msg.react("🇹🇳")
       msg.channel.send("🇹🇳")
     }
   });
   
-  client.on('message', msg => {
-    if (msg.content === 'سوريا') {      
+  client.on("message", msg => {
+    if (msg.content === "سوريا") {      
       msg.react("🇸🇾")
       msg.channel.send("🇸🇾")
     }
   });
   
-  client.on('message', msg => {
-    if (msg.content === 'ليبيا') {      
+  client.on("message", msg => {
+    if (msg.content === "ليبيا") {      
       msg.react("🇱🇾")
       msg.channel.send("🇱🇾")
     }
   });
   
-  client.on('message', msg => {
-    if (msg.content === 'قطر') {      
+  client.on("message", msg => {
+    if (msg.content === "قطر") {      
       msg.react("🇶🇦")
       msg.channel.send("🇶🇦")
     }
   });
   
-  client.on('message', msg => {
-    if (msg.content === 'الصومال') {      
+  client.on("message", msg => {
+    if (msg.content === "الصومال") {      
       msg.react("🇸🇴")
       msg.channel.send("🇸🇴")
     }
   });
   
-  client.on('message', msg => {
-    if (msg.content === 'عمان') {      
+  client.on("message", msg => {
+    if (msg.content === "عمان") {      
       msg.react("🇴🇲")
       msg.channel.send("🇴🇲")
     }
   });
   
-  client.on('message', msg => {
-    if (msg.content === 'موريتانيا') {      
+  client.on("message", msg => {
+    if (msg.content === "موريتانيا") {      
       msg.react("🇲🇷")
       msg.channel.send("🇲🇷")
     }
   });
   
-  client.on('message', msg => {
-    if (msg.content === 'السودان') {      
+  client.on("message", msg => {
+    if (msg.content === "السودان") {      
       msg.react("🇸🇩")
       msg.channel.send("🇸🇩")
     }
   });
   
-  client.on('message', msg => {
-    if (msg.content === 'جيبوتي') {      
+  client.on("message", msg => {
+    if (msg.content === "جيبوتي") {      
       msg.react("🇩🇯")
       msg.channel.send("🇩🇯")
     }
   });
   
-  client.on('message', msg => {
-    if (msg.content === 'لبنان') {      
+  client.on("message", msg => {
+    if (msg.content === "لبنان") {      
       msg.react("🇱🇧")
       msg.channel.send("🇱🇧")
     }
   });
   
-  client.on('message', msg => {
-    if (msg.content === 'البحرين') {      
+  client.on("message", msg => {
+    if (msg.content === "البحرين") {      
       msg.react("🇧🇭")
       msg.channel.send("🇧🇭")
     }
   });
   
-  client.on('message', msg => {
-    if (msg.content === 'الاردن') {      
+  client.on("message", msg => {
+    if (msg.content === "الاردن") {      
       msg.react("🇯🇴")
       msg.channel.send("🇯🇴")
     }
   });
   
-  client.on('message', msg => {
-    if (msg.content === 'اليمن') {      
+  client.on("message", msg => {
+    if (msg.content === "اليمن") {      
       msg.react("🇾🇪")
       msg.channel.send("🇾🇪")
     }
   });
   
-  client.on('message', msg => {
-    if (msg.content === 'الكويت') {      
+  client.on("message", msg => {
+    if (msg.content === "الكويت") {      
       msg.react("🇰🇼")
       msg.channel.send("🇰🇼")
     }
   });
   
-  client.on('message', msg => {
-    if (msg.content === 'فلسطين') {      
+  client.on("message", msg => {
+    if (msg.content === "فلسطين") {      
       msg.react("🇵🇸")
       msg.channel.send("🇵🇸")
     }
   });
-client.on('message', message => {
+client.on("message", message => {
     let command = message.content.split(" ")[0];
   command = command.slice(prefix.length);
 
@@ -1174,14 +1174,14 @@ client.on('message', message => {
 
 
 if(command == "draw") {
-    const Canvas = require('canvas')
+    const Canvas = require("canvas")
     , Image = new Canvas.Image;
     const canvas = Canvas.createCanvas(700, 250);
-    ctx = canvas.getContext('2d');
+    ctx = canvas.getContext("2d");
     
     
 
-  ctx.font = '30px Impact';
+  ctx.font = "30px Impact";
   let args = message.content.split(" ").slice(1);
   
 Image.src = canvas.toBuffer();
@@ -1197,24 +1197,24 @@ ctx.stroke();
 
 message.channel.sendFile(canvas.toBuffer());
 }
-}).on('ready', () => {
+}).on("ready", () => {
 
 });
 
 
-client.on('message' , message => {
-    let user = message.mentions.users.first()|| client.users.get(message.content.split(' ')[1])
-    if(message.content.startsWith(prefix + 'unban')) {
-        if(!message.member.hasPermission('BAN_MEMBERS')) return message.channel.send('❌|**`You dont have permission`\`BAN_MEMBERS\`**');
+client.on("message" , message => {
+    let user = message.mentions.users.first()|| client.users.get(message.content.split(" ")[1])
+    if(message.content.startsWith(prefix + "unban")) {
+        if(!message.member.hasPermission("BAN_MEMBERS")) return message.channel.send("❌|**`You dont have permission`\`BAN_MEMBERS\`**");
         if(!user) return  message.channel.send(`Do this ${prefix}unban <@ID user> \n or \n ${prefix}unban ID user`);
         message.guild.unban(user);
         message.guild.owner.send(`Ban removed from \n ${user} \n By : <@${message.author.id}>`)
         var embed = new Discord.RichEmbed()
         .setThumbnail(message.author.avatarURl)
         .setColor("RANDOM")
-        .setTitle('**●Unban** !')
-        .addField('**●User Unban :** ', `${user}` , true)
-        .addField('**●By :**' ,       ` <@${message.author.id}> ` , true)
+        .setTitle("**●Unban** !")
+        .addField("**●User Unban :** ", `${user}` , true)
+        .addField("**●By :**" ,       ` <@${message.author.id}> ` , true)
         .setAuthor(message.guild.name)
         message.channel.sendEmbed(embed)
     }
@@ -1222,7 +1222,7 @@ client.on('message' , message => {
 
 client.on("message", message => {
 
-    if (message.content.startsWith(prefix + 'tierlist')) {
+    if (message.content.startsWith(prefix + "tierlist")) {
         let q
         rea = message.content.substring(15)
         re = /\|/i
@@ -1234,7 +1234,7 @@ client.on("message", message => {
         rea = rea.replace("\`", "")
         rea = rea.split(re)
         message.channel.send("Text to work with:" + rea)
-        let tiers = ['', '', '', '', '', '', '']
+        let tiers = ["", "", "", "", "", "", ""]
         console.log(rea)
         for (let i = 0; i<rea.length; i++) {
             q = Math.floor(Math.random()*7)
@@ -1261,30 +1261,30 @@ client.on("message", message => {
       let command = message.content.split(" ")[0];
       command = command.slice(adminprefix.length);
         if(command === "setwatching") {
-            if (!devs.includes(message.author.id)) return message.reply('**Are you sure you are from bot team? write ```error$isimfrombotteam``` to make sure you are from bot team**')
+            if (!devs.includes(message.author.id)) return message.reply("**Are you sure you are from bot team? write ```error$isimfrombotteam``` to make sure you are from bot team**")
                 const args = message.content.split(" ").slice(1).join(" ")
         if (!args) return message.channel.send("** Write The Watching Status **");
         client.user.setActivity(args ,{type: "WATCHING"});
         }
         if(command === "setplaying") {
-            if (!devs.includes(message.author.id)) return message.reply('**Are you sure you are from bot team? write ```error$isimfrombotteam``` to make sure you are from bot team**')
+            if (!devs.includes(message.author.id)) return message.reply("**Are you sure you are from bot team? write ```error$isimfrombotteam``` to make sure you are from bot team**")
                 const args = message.content.split(" ").slice(1).join(" ")
         if (!args) return message.channel.send("** Write The Playing Status **");
         client.user.setActivity(args ,{type: "PLAYING"});
         }
         if(command === "setlistening") {
-            if (!devs.includes(message.author.id)) return message.reply('**Are you sure you are from bot team? write ```error$isimfrombotteam``` to make sure you are from bot team**')
+            if (!devs.includes(message.author.id)) return message.reply("**Are you sure you are from bot team? write ```error$isimfrombotteam``` to make sure you are from bot team**")
                 const args = message.content.split(" ").slice(1).join(" ")
         if (!args) return message.channel.send("** Write The Listening Status **");
         client.user.setActivity(args ,{type: "LISTENING"});
         }
     }); 
 
-      client.on('message', message => {
+      client.on("message", message => {
         if (!message.content.startsWith(prefix)) return;
         let command = message.content.split(" ")[0];
         command = command.slice(prefix.length);
-        if (command === 'say') {
+        if (command === "say") {
             const args = message.content.split(" ").slice(1).join(" ")
             if (!args) return message.channel.send("** mmmm What i Say? **");
           message.channel.send(args);
@@ -1296,15 +1296,15 @@ client.on("message", message => {
   if (message.author.bot) return;
  if(!message.channel.guild)return;
   if (!profile[message.author.id]) profile[message.author.id] = {
-    tite: 'Bot User',
+    tite: "Bot User",
     rep: 0,
-   reps: 'NOT YET',
-   lastDaily:'Not Collected',
+   reps: "NOT YET",
+   lastDaily:"Not Collected",
     level: 0,
     points: 0,
     credits: 1,
   };
-fs.writeFile('./profile.json', JSON.stringify(profile), (err) => {
+fs.writeFile("./profile.json", JSON.stringify(profile), (err) => {
 if (err) console.error(err);
 })
 });
@@ -1313,10 +1313,10 @@ client.on("message", (message) => {
   if (message.author.bot) return;
     if (message.author.id === client.user.id) return;
     if(!message.channel.guild) return;
-if (message.content.startsWith(prefix + 'credits')) {
+if (message.content.startsWith(prefix + "credits")) {
   if(men) {
   if (!profile[men.id]) profile[men.id] = {
-   lastDaily:'Not Collected',
+   lastDaily:"Not Collected",
    credits: 1,
  };
   }
@@ -1329,18 +1329,18 @@ message.channel.send(`** ${men.username}, :credit_card: balance` + " is `" + `${
 if(message.content.startsWith(prefix + "daily")) {
 
 
-  if(profile[message.author.id].lastDaily != moment().format('hour')) {
-   profile[message.author.id].lastDaily = moment().format('hour')
+  if(profile[message.author.id].lastDaily != moment().format("hour")) {
+   profile[message.author.id].lastDaily = moment().format("hour")
    profile[message.author.id].credits += 5
     message.channel.send(`**${message.author.username} you collect your \`5\` :dollar: daily pounds**`)
 } else {
-    message.channel.send(`**:stopwatch: | ${message.author.username}, your daily :yen: credits refreshes ${moment().endOf('hour').fromNow()}**`)
+    message.channel.send(`**:stopwatch: | ${message.author.username}, your daily :yen: credits refreshes ${moment().endOf("hour").fromNow()}**`)
 }
 }
 let cont = message.content.slice(prefix.length).split(" ");
 let args = cont.slice(2);
 let sender = message.author
-if(message.content.startsWith(prefix + 'send')) {
+if(message.content.startsWith(prefix + "send")) {
           if (!args[0]) {
             message.channel.send(`**Usage: ${prefix}send @someone amount**`);
          return;
@@ -1348,11 +1348,11 @@ if(message.content.startsWith(prefix + 'send')) {
         // We should also make sure that args[0] is a number
         if (isNaN(args[0])) {
             message.channel.send(`**Usage: ${prefix}send @someone amount**`);
-            return; // Remember to return if you are sending an error message! So the rest of the code doesn't run.
+            return; // Remember to return if you are sending an error message! So the rest of the code doesn"t run.
              }
              if(profile[message.author.id].credits < args[0]) return message.channel.send("**Your Credits is not enough  that**")
-if(args[0].startsWith("-")) return  message.channel.send('**!! I Cant Do it**');
-				 let defineduser = '';
+if(args[0].startsWith("-")) return  message.channel.send("**!! I Cant Do it**");
+				 let defineduser = "";
             let firstMentioned = message.mentions.users.first();
             defineduser = (firstMentioned)
             if (!defineduser) return message.channel.send(`**Usage: ${prefix}trans @someone amount**`);
@@ -1360,14 +1360,14 @@ if(args[0].startsWith("-")) return  message.channel.send('**!! I Cant Do it**');
             var mentionned = message.mentions.users.first();
 if (!profile[sender.id]) profile[sender.id] = {}
 if (!profile[sender.id].credits) profile[sender.id].credits = 310;
-fs.writeFile('./profile.json', JSON.stringify(profile), (err) => {
+fs.writeFile("./profile.json", JSON.stringify(profile), (err) => {
 if (err) console.error(err);
 })
-var x = ['5587' ,' 9978' , '3785' , '7734' , '9864' , '7681' , '3758' , '7834' , '3489' , '1382' , '7389' , '8762' , '0889' , '0388' , '3316' , '0976' , '8603' , '1842' , '4565' , '9524' , '9524' , '0964' , '5930' , '5678' , '9567' , '6099' , '7058' , '0001' , '1324' , '9834' , '7668' , '0378' , '7055' , '9733' , '9876' , '9846' , '9685' , '8574' , '8975' , '9845' , '9862' , '0069' , '0807' , '0673' , '0813' , '1235' , '6879'];
-var x2 = ['5587' ,' 9978' , '3785' , '7734' , '9864' , '7681' , '3758' , '7834' , '3489' , '1382' , '7389' , '8762' , '0889' , '0388' , '3316' , '0976' , '8603' , '1842' , '4565' , '9524' , '9524' , '0964' , '5930' , '5678' , '9567' , '6099' , '7058' , '0001' , '1324' , '9834' , '7668' , '0378' , '7055' , '9733' , '9876' , '9846' , '9685' , '8574' , '8975' , '9845' , '9862' , '0069' , '0807' , '0673' , '0813' , '1235' , '6879'];
+var x = ["5587" ," 9978" , "3785" , "7734" , "9864" , "7681" , "3758" , "7834" , "3489" , "1382" , "7389" , "8762" , "0889" , "0388" , "3316" , "0976" , "8603" , "1842" , "4565" , "9524" , "9524" , "0964" , "5930" , "5678" , "9567" , "6099" , "7058" , "0001" , "1324" , "9834" , "7668" , "0378" , "7055" , "9733" , "9876" , "9846" , "9685" , "8574" , "8975" , "9845" , "9862" , "0069" , "0807" , "0673" , "0813" , "1235" , "6879"];
+var x2 = ["5587" ," 9978" , "3785" , "7734" , "9864" , "7681" , "3758" , "7834" , "3489" , "1382" , "7389" , "8762" , "0889" , "0388" , "3316" , "0976" , "8603" , "1842" , "4565" , "9524" , "9524" , "0964" , "5930" , "5678" , "9567" , "6099" , "7058" , "0001" , "1324" , "9834" , "7668" , "0378" , "7055" , "9733" , "9876" , "9846" , "9685" , "8574" , "8975" , "9845" , "9862" , "0069" , "0807" , "0673" , "0813" , "1235" , "6879"];
         var x3 = Math.floor(Math.random()*x.length)
         message.channel.send(` \`${args}\`** : Amount **  \n \`${x[x3]}\` ** : Write the next number to do the transfare **`).then(msg1=> { 
-        var r = message.channel.awaitMessages(msg => msg.content == x2[x3], { maxMatches : 1, time : 60000, errors : ['time'] })
+        var r = message.channel.awaitMessages(msg => msg.content == x2[x3], { maxMatches : 1, time : 60000, errors : ["time"] })
         r.catch(() => {
             message.delete()
             r.delete()
