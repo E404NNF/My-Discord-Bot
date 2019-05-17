@@ -1,5 +1,6 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
+client.login(process.env.BOT_TOKEN);
 const querystring = require("querystring");
 const r2          = require("r2");
 const superagent = require("superagent");
@@ -1246,6 +1247,4 @@ mentionned.send(` :credit_card: | Transfer Receipt \`\`\`You have received ${arg
 
 
 }
-
       });	
-client.login(process.env.BOT_TOKEN);
