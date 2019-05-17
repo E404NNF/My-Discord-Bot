@@ -559,42 +559,7 @@ let codes = {
           client.channels.get("578584446626824192").send(embed)
         });
 
-        client.on("message", message => {
-            if (message.content === "error$help") {
-		    message.channel.send({
-			embed: {
-				color: 3447003,
-				author: {
-					name: client.user.username,
-					icon_url: client.user.avatarURL
-				},
-				title: "**Admistration**",
-				description: "The command prefix is ${prefix}",
-				fields: [
-					{
-						name: "**error$createcolors [X]**",
-						value: "*Creates some colored rules the [X] stands for how times*"
-					},
-					{
-						name: "**error$createcolors [X]**",
-						value: "*Creates some colored rules the [X] stands for how times*"
-					},
-					{
-						name: "**error$bc [MESSAGE]**",
-						value: "*Sends a message to all the server members [MESSAGE] stands for the message*"
-					},
-					{
-						name: "**error$clear [X]**",
-						value: "*Clears the last [X] messages in the current channel*"
-					},
-					{
-						name: "**error$unban [PERSONE]**",
-						value: "*Unbans the [PERSONE]*"
-					},
-				],
-				timestamp: new Date()
-			}
-	   });
+
 
 client.on("message", message => {
             if (message.content === "error$invitebot") {
