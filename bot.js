@@ -72,7 +72,16 @@ client.on("ready", function(){
 			.addField("**error$color**","*Give's you a color with the number [X] if availble in the server*")
 			.addField("**error$avatar [ID]**","Gives you the selected [ID] of a persone IF EMPTY it will give you your avatar")
 			.setFooter(new Date())
+			let embedADMIN = new Discord.RichEmbed()
+			.setTitle("**Admistration Commands**")
+			.setDescription("The command prefix is ${prefix}")
+			.addField("**error$createcolors [X]**","Creates some colored rules the [X] stands for how times")
+			.addField("**error$bc [MESSAGE]**","*Sends a message to all the server members [MESSAGE] stands for the message*")
+			.addField("**error$clear [X]**","*Clears the last [X] messages in the current channel*")
+			.addField("**error$unban [PERSONE]**","*Unbans the [PERSONE]*")
+			.setFooter(new Date())
   message.channel.send(embedMISC)
+  message.channel.send(embedADMIN)
 			
 	
       }
