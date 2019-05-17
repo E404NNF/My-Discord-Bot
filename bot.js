@@ -99,7 +99,7 @@ client.on("ready", function(){
   message.channel.send(embedFUN)
 			let embedINFO = new Discord.RichEmbed()
 			.setTitle("**Bot INFO**")
-			.addField("**BOT By: **","*@<426260385411104768>*")
+			.addField("**BOT By: **","*<@426260385411104768>*")
 			.addField("**Host: **","*https://dashboard.heroku.com/*")
 			.addField("**Bot Type: **", "*Mostly for fun and misc*")
 			.setFooter(new Date())
