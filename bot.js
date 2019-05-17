@@ -136,7 +136,7 @@ if (msg.content.startsWith(prefix + "cal")) {
 client.on("message", message => {
 
      if (message.content.startsWith(prefix)){
-           console.log(message.author.username + " executed: " + message.content + " in server " + message.guild.name)
+           console.log(message.author.username + " executed: " + message.content)
      }
 });
 
