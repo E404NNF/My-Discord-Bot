@@ -643,7 +643,7 @@ client.on("message", message => {
 
       client.on("message" , message => { 
         if (message.author.bot) return;
-         if (message.content === botowner + "sr") {
+         if (message.content === adminprefix + "sr") {
             if (!devs.includes(message.author.id)) return message.reply("** Sorry But That Command For The Owner Only **")
     
     if(!message.channel.guild) return;
