@@ -70,6 +70,7 @@ client.on("ready", function(){
 			.addField("**error$ping**","*Gives you the bot ping*")
 			.addField("**error$roleperms [ROLE]**","*Gives you the perms of the role you have OR the perms of the [ROLE]*")
 			.addField("**error$color**","*Give's you a color with the number [X] if availble in the server*")
+			.addField("**error$avatar [ID]**","Gives you the selected [ID] of a persone IF EMPTY it will give you your avatar")
 			.setFooter(new Date())
   message.channel.send(embedMISC)
 			
