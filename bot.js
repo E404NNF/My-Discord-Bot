@@ -588,7 +588,7 @@ let codes = {
 					},
 					{
 						name: "**error$unban [PERSONE]**",
-						value: "*Unban"s the [PERSONE]*"
+						value: "*Unbans the [PERSONE]*"
 					},
 				],
 				timestamp: new Date()
