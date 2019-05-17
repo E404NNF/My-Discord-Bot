@@ -709,7 +709,7 @@ client.on("message", message => {
         
 .addField("⬇Rooms Name ✔:",`**[${channels}]**`)
         message.channel.sendEmbed(embed);
-    }
+    };
 });
 
 client.on("message", message => {
@@ -881,7 +881,7 @@ client.on("message", message => {
     let ar = args.join(" ");
 
     message.channel.send(ar,{tts:true});
-}
+};
 });
 
 client.on("message", message => {
@@ -957,7 +957,7 @@ let avtEmbed = new Discord.RichEmbed()
 message.channel.send(avtEmbed);
 })
 .catch(() => message.channel.send(`Error`));
-} // Julian
+}; // Julian
 }); // Codes - Toxic Codes
 
     client.on("message" , async (message) => {
@@ -974,7 +974,7 @@ message.channel.send(avtEmbed);
            .setImage(`${body.image}`)
            message.channel.send(`**The magic API says:** **${body.answer}**`, {embed});
        
-       }
+       };
        });
 
     client.on("message" , async (message) => {
@@ -989,7 +989,7 @@ message.channel.send(avtEmbed);
 	   message.channel.send(`check your dms`)
            message.author.sendMessage(``, {embed});
        
-       }
+       };
        });
 
     client.on("message" , async (message) => {
@@ -1003,7 +1003,7 @@ message.channel.send(avtEmbed);
 	   message.channel.send(`Title: ${body.title}`)
 		message.channel.sendFile(`${body.url}`)
        
-       }
+       };
        });
 
     client.on("message" , async (message) => {
@@ -1017,155 +1017,8 @@ message.channel.send(avtEmbed);
 	   message.channel.send(`Title: ${body.title}`)
 		message.channel.sendFile(`${body.url}`)
        
-       }
+       };
        });
-
-client.on("message", msg => {
-    if (msg.content === "السعودية") {      
-      msg.react("🇸🇦")
-      msg.channel.send("🇸🇦")
-    }
-  });
-  
-  client.on("message", msg => {
-    if (msg.content === "مصر") {      
-      msg.react("🇪🇬")
-      msg.channel.send("🇪🇬")
-    }
-  });
-  
-  client.on("message", msg => {
-    if (msg.content === "المغرب") {      
-      msg.react("🇲🇦")
-      msg.channel.send("🇲🇦")
-    }
-  });
-  
-  client.on("message", msg => {
-    if (msg.content === "العراق") {      
-      msg.react("🇮🇶")
-      msg.channel.send("🇮🇶")
-    }
-  });
-  
-  client.on("message", msg => {
-    if (msg.content === "الجزائر") {      
-      msg.react("🇩🇿")
-      msg.channel.send("🇩🇿")
-    }
-  });
-  
-  client.on("message", msg => {
-    if (msg.content === "الامارات") {      
-      msg.react("🇦🇪")
-      msg.channel.send("🇦🇪")
-    }
-  });
-  
-  client.on("message", msg => {
-    if (msg.content === "تونس") {      
-      msg.react("🇹🇳")
-      msg.channel.send("🇹🇳")
-    }
-  });
-  
-  client.on("message", msg => {
-    if (msg.content === "سوريا") {      
-      msg.react("🇸🇾")
-      msg.channel.send("🇸🇾")
-    }
-  });
-  
-  client.on("message", msg => {
-    if (msg.content === "ليبيا") {      
-      msg.react("🇱🇾")
-      msg.channel.send("🇱🇾")
-    }
-  });
-  
-  client.on("message", msg => {
-    if (msg.content === "قطر") {      
-      msg.react("🇶🇦")
-      msg.channel.send("🇶🇦")
-    }
-  });
-  
-  client.on("message", msg => {
-    if (msg.content === "الصومال") {      
-      msg.react("🇸🇴")
-      msg.channel.send("🇸🇴")
-    }
-  });
-  
-  client.on("message", msg => {
-    if (msg.content === "عمان") {      
-      msg.react("🇴🇲")
-      msg.channel.send("🇴🇲")
-    }
-  });
-  
-  client.on("message", msg => {
-    if (msg.content === "موريتانيا") {      
-      msg.react("🇲🇷")
-      msg.channel.send("🇲🇷")
-    }
-  });
-  
-  client.on("message", msg => {
-    if (msg.content === "السودان") {      
-      msg.react("🇸🇩")
-      msg.channel.send("🇸🇩")
-    }
-  });
-  
-  client.on("message", msg => {
-    if (msg.content === "جيبوتي") {      
-      msg.react("🇩🇯")
-      msg.channel.send("🇩🇯")
-    }
-  });
-  
-  client.on("message", msg => {
-    if (msg.content === "لبنان") {      
-      msg.react("🇱🇧")
-      msg.channel.send("🇱🇧")
-    }
-  });
-  
-  client.on("message", msg => {
-    if (msg.content === "البحرين") {      
-      msg.react("🇧🇭")
-      msg.channel.send("🇧🇭")
-    }
-  });
-  
-  client.on("message", msg => {
-    if (msg.content === "الاردن") {      
-      msg.react("🇯🇴")
-      msg.channel.send("🇯🇴")
-    }
-  });
-  
-  client.on("message", msg => {
-    if (msg.content === "اليمن") {      
-      msg.react("🇾🇪")
-      msg.channel.send("🇾🇪")
-    }
-  });
-  
-  client.on("message", msg => {
-    if (msg.content === "الكويت") {      
-      msg.react("🇰🇼")
-      msg.channel.send("🇰🇼")
-    }
-  });
-  
-  client.on("message", msg => {
-    if (msg.content === "فلسطين") {      
-      msg.react("🇵🇸")
-      msg.channel.send("🇵🇸")
-    }
-  });
 client.on("message", message => {
     let command = message.content.split(" ")[0];
   command = command.slice(prefix.length);
@@ -1217,7 +1070,7 @@ client.on("message" , message => {
         .addField("**●By :**" ,       ` <@${message.author.id}> ` , true)
         .setAuthor(message.guild.name)
         message.channel.sendEmbed(embed)
-    }
+    };
 });
 
 client.on("message", message => {
@@ -1243,7 +1096,7 @@ client.on("message", message => {
             } else {
                 tiers[q] = tiers[q] + ", " + rea[i]
             }
-        }
+        };
         q = "```S: " + tiers[0] + "\n"
         q = q + "A: " + tiers[1] + "\n"
         q = q + "B: " + tiers[2] + "\n"
@@ -1265,19 +1118,19 @@ client.on("message", message => {
                 const args = message.content.split(" ").slice(1).join(" ")
         if (!args) return message.channel.send("** Write The Watching Status **");
         client.user.setActivity(args ,{type: "WATCHING"});
-        }
+        };
         if(command === "setplaying") {
             if (!devs.includes(message.author.id)) return message.reply("**Are you sure you are from bot team? write ```error$isimfrombotteam``` to make sure you are from bot team**")
                 const args = message.content.split(" ").slice(1).join(" ")
         if (!args) return message.channel.send("** Write The Playing Status **");
         client.user.setActivity(args ,{type: "PLAYING"});
-        }
+        };
         if(command === "setlistening") {
             if (!devs.includes(message.author.id)) return message.reply("**Are you sure you are from bot team? write ```error$isimfrombotteam``` to make sure you are from bot team**")
                 const args = message.content.split(" ").slice(1).join(" ")
         if (!args) return message.channel.send("** Write The Listening Status **");
         client.user.setActivity(args ,{type: "LISTENING"});
-        }
+        };
     }); 
 
       client.on("message", message => {
@@ -1383,7 +1236,7 @@ var x2 = ["5587" ," 9978" , "3785" , "7734" , "9864" , "7681" , "3758" , "7834" 
       let mariam = message.author.username
 message.channel.send(`**:moneybag: | ${message.author.username}, has transferrerd ` + "`" + args[0] + "$` to " + `<@${defineduser.id}>**`)
 mentionned.send(` :credit_card: | Transfer Receipt \`\`\`You have received ${args[0]} from user ${message.author.username} ; (ID (${message.author.id})\`\`\``);
-               message.channel.sendEmbed(embed)
+               message.channel.sendEmbed({embed})
         })
         })
         
@@ -1394,7 +1247,5 @@ mentionned.send(` :credit_card: | Transfer Receipt \`\`\`You have received ${arg
 
 }
 
-      });
-      });
-		
+      });	
 client.login(process.env.BOT_TOKEN);
