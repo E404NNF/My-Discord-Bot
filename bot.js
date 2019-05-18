@@ -1098,7 +1098,7 @@ client.on("message", message => {
 
     if (message.content.startsWith(prefix + "tierlist")) {
         let q
-        rea = message.content.substring(9)
+        rea = message.content.substring(10)
         re = /\|/i
         if (re.test(rea)==false) {
             message.channel.send("Seperate your inputs with `|`s")
