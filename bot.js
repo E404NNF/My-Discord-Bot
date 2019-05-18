@@ -4,7 +4,7 @@ client.login(process.env.BOT_TOKEN);
 const querystring = require("querystring");
 const r2          = require("r2");
 const superagent = require("superagent");
-var prefix = "error$";
+var prefix = "e<";
 const devs = ["426260385411104768","406877114936197120","452292328569307137"];
 const adminprefix = "botowner$"
 const fs = require("fs-extra");
@@ -36,7 +36,7 @@ client.on("error", data => {
 client.on("ready", function(){
     client.user.setStatus("dnd");
     var ms = 100000 ;
-    var setGame = [`${client.guilds.size} Servers`,`${client.users.size} Users`,`P... | error$help| error$invitebot | Error name found`];
+    var setGame = [`${client.guilds.size} Servers`,`${client.users.size} Users`,`P... | e<help| e<invitebot | Error name found`];
     var i = -1;
     var j = 0;
     setInterval(function (){
@@ -53,46 +53,46 @@ client.on("ready", function(){
 });
 
       client.on("message", message => {	
-             if (message.content === "error$help") {	
+             if (message.content === "e<help") {	
 			let embedMISC = new Discord.RichEmbed()
 			.setTitle("Misc Commands")
 			.setDescription("The command prefix is ${prefix}")
-			.addField("**error$invite**","*Creates a 24H invite link to the current server*")
-			.addField("**error$sendto [PERSONE] [MESSAGE]**","*Send's a [MESSAGE] to a [PERSONE]*")
-			.addField("**error$serverrooms**","*Gives you information about the server roooms [Numbers and names]*")
-			.addField("**error$status**","*Bot status*")
-			.addField("**error$whohasmytag**","*Checks who have your #XXXX number in the server*")
-			.addField("**error$invites**","*Checks how much you invited*")
-			.addField("**error$membersmode**","*Checks how much you invied*")
-			.addField("**error$membersmode**","*Checks All the server users status DND,Idle,Online,Offline*")
-			.addField("**error$serverimage**","Gives you the current server icon*")
-			.addField("**error$calc [MATH PROBLEM]**","*Solves the [MATH PROBLEM] for you*")
-			.addField("**error$ping**","*Gives you the bot ping*")
-			.addField("**error$roleperms [ROLE]**","*Gives you the perms of the role you have OR the perms of the [ROLE]*")
-			.addField("**error$color**","*Give's you a color with the number [X] if availble in the server*")
-			.addField("**error$avatar [ID]**","Gives you the selected [ID] of a persone IF EMPTY it will give you your avatar")
+			.addField("**e<invite**","*Creates a 24H invite link to the current server*")
+			.addField("**e<sendto [PERSONE] [MESSAGE]**","*Send's a [MESSAGE] to a [PERSONE]*")
+			.addField("**e<serverrooms**","*Gives you information about the server roooms [Numbers and names]*")
+			.addField("**e<status**","*Bot status*")
+			.addField("**e<whohasmytag**","*Checks who have your #XXXX number in the server*")
+			.addField("**e<invites**","*Checks how much you invited*")
+			.addField("**e<membersmode**","*Checks how much you invied*")
+			.addField("**e<membersmode**","*Checks All the server users status DND,Idle,Online,Offline*")
+			.addField("**e<serverimage**","Gives you the current server icon*")
+			.addField("**e<calc [MATH PROBLEM]**","*Solves the [MATH PROBLEM] for you*")
+			.addField("**e<ping**","*Gives you the bot ping*")
+			.addField("**e<roleperms [ROLE]**","*Gives you the perms of the role you have OR the perms of the [ROLE]*")
+			.addField("**e<color**","*Give's you a color with the number [X] if availble in the server*")
+			.addField("**e<avatar [ID]**","Gives you the selected [ID] of a persone IF EMPTY it will give you your avatar")
 			.setFooter(new Date())
 			let embedADMIN = new Discord.RichEmbed()
 			.setTitle("**Admistration Commands**")
 			.setDescription("The command prefix is ${prefix}")
-			.addField("**error$createcolors [X]**","Creates some colored rules the [X] stands for how times")
-			.addField("**error$bc [MESSAGE]**","*Sends a message to all the server members [MESSAGE] stands for the message*")
-			.addField("**error$clear [X]**","*Clears the last [X] messages in the current channel*")
-			.addField("**error$unban [PERSONE]**","*Unbans the [PERSONE]*")
+			.addField("**e<createcolors [X]**","Creates some colored rules the [X] stands for how times")
+			.addField("**e<bc [MESSAGE]**","*Sends a message to all the server members [MESSAGE] stands for the message*")
+			.addField("**e<clear [X]**","*Clears the last [X] messages in the current channel*")
+			.addField("**e<unban [PERSONE]**","*Unbans the [PERSONE]*")
 			.setFooter(new Date())
 			let embedFUN = new Discord.RichEmbed()
 			.setTitle("**FUN Commands**")
 			.setDescription("The command prefix is ${prefix}")
-			.addField("**error$cat**","*UwU Cats*")
-			.addField("**error$dog**","*UwU Dogs*")
-			.addField("**error$meme**","*Gives you a random meme from r/memes*")
-			.addField("**error$cursedminecraft**","*Gives you a random meme from r/cursedminecraft*")
-			.addField("**error$yn**","*yes or no AKA. a basic 8ball*")
-			.addField("**error$skin [NAME]**","*Gives you [NAME] minecraft skin*")
-			.addField("**error$mcskindownload [NAME]**","*Gives you [NAME] minecraft skin*")
-			.addField("**error$e [TEXT]**","*Converts [TEXT] to emojis*")
-			.addField("**error$tag [TEXT]**","*Converts [TEXT] to tag*")
-			.addField("**error$type**","*make the bot start typing for couple of seconds*")
+			.addField("**e<cat**","*UwU Cats*")
+			.addField("**e<dog**","*UwU Dogs*")
+			.addField("**e<meme**","*Gives you a random meme from r/memes*")
+			.addField("**e<cursedminecraft**","*Gives you a random meme from r/cursedminecraft*")
+			.addField("**e<yn**","*yes or no AKA. a basic 8ball*")
+			.addField("**e<skin [NAME]**","*Gives you [NAME] minecraft skin*")
+			.addField("**e<mcskindownload [NAME]**","*Gives you [NAME] minecraft skin*")
+			.addField("**e<e [TEXT]**","*Converts [TEXT] to emojis*")
+			.addField("**e<tag [TEXT]**","*Converts [TEXT] to tag*")
+			.addField("**e<type**","*make the bot start typing for couple of seconds*")
 			.setFooter(new Date())
   message.channel.send(embedMISC)
   message.channel.send(embedADMIN)
@@ -141,7 +141,7 @@ client.on("message", message => {
 });
 
 client.on("message", message => {
-            if (message.content.startsWith("error$ping")) {
+            if (message.content.startsWith("e<ping")) {
                 if(!message.channel.guild) return;
             
             if (message.author.bot) return;
@@ -326,7 +326,7 @@ client.on("message", message => {
     }
     });
 client.on("message", message => {
-    if (message.content === "error$cat") {
+    if (message.content === "e<cat") {
 
         message.channel.sendFile("http://thecatapi.com/api/images/get?format=src&type=png", "cat.png")
     }
@@ -334,7 +334,7 @@ client.on("message", message => {
 const DOG_API_URL   = "https://api.thedogapi.com/"
 const DOG_API_KEY   = "b9217e7c-c03c-4dde-9c54-7faa0578be18"; // get a free key from - https://thedogapi.com/signup
 client.on("message", message => {
-    if (message.content === "error$dog") {
+    if (message.content === "e<dog") {
  messageRecieved(message);
     }
 });
@@ -547,7 +547,7 @@ let codes = {
 	  
         client.on("message", message => {
             if (!message.guild) return; 
-            if (message.content === "error$invite") {
+            if (message.content === "e<invite") {
         
                 message.channel.createInvite({
                 thing: true,
@@ -617,7 +617,7 @@ let codes = {
 
 
 client.on("message", message => {
-            if (message.content === "error$invitebot") {
+            if (message.content === "e<invitebot") {
                 message.channel.send("Check Your DM✅");
             message.author.sendMessage(`https://discordapp.com/oauth2/authorize?client_id=456252070530514965&permissions=20803749758&scope=bot`);	 
             }
@@ -627,7 +627,7 @@ client.on("message", message => {
 
         client.on("message", message => {
             let args = message.content.split(" ").slice(1);
-     if(message.content.split(" ")[0] == "error$color"){
+     if(message.content.split(" ")[0] == "e<color"){
              const embedd = new Discord.RichEmbed()
        .setFooter("Requested by "+message.author.username, message.author.avatarURL)
      .setDescription(`**There"s No Color With This Number ** :x: `)
@@ -718,7 +718,7 @@ client.on("message", msg => {
 });
 
 client.on("message", message => {
-    if (message.content === "error$serverrooms") {
+    if (message.content === "e<serverrooms") {
         if (message.author.bot) return
                       if (!message.guild) return;
 
@@ -740,7 +740,7 @@ client.on("message", message => {
         let args = message.content.split(" ").slice(1).join(" ");
     if(message.content.split(" ")[0] == prefix + "bc") {
         if (!args[1]) {
-    message.channel.send("**Usage: error$bc <message>**");
+    message.channel.send("**Usage: e<bc <message>**");
     return;
     }
             message.guild.members.forEach(m => {
@@ -780,7 +780,7 @@ client.on("message", message => {
         }
         });
         client.on("message", message => {
-            if (message.content.startsWith("error$status")) {
+            if (message.content.startsWith("e<status")) {
               message.channel.send({
          embed: new Discord.RichEmbed() 
             .setColor("RED")
@@ -807,7 +807,7 @@ client.on("message", message => {
 
                     client.on("message", message => {
                         if(!message.channel.guild) return;
-                if (message.content.startsWith("error$ping")) {
+                if (message.content.startsWith("e<ping")) {
                     if(!message.channel.guild) return;
                     var msg = `${Date.now() - message.createdTimestamp}`
                     var api = `${Math.round(client.ping)}`
@@ -853,7 +853,7 @@ client.on("message",function(message) {
   }
   });
   client.on("message", message => {
-    if (message.content.startsWith ("error$invites")) {
+    if (message.content.startsWith ("e<invites")) {
      if(!message.channel.guild) return message.reply("** This command only for servers **");
          var mentionned = message.mentions.users.first();
         var os;
@@ -885,19 +885,19 @@ client.on("message",function(message) {
   
   client.on("message", message =>{
     if (message.author.bot) return;
-    if(message.content == "error$type"){
+    if(message.content == "e<type"){
 message.channel.startTyping();
 }
 });
 client.on("message", message =>{
     if (message.author.bot) return;
-    if(message.content == "error$type"){
+    if(message.content == "e<type"){
 message.channel.stopTyping();
 }
 });
 
 client.on("message", message => {
-    if(message.content.startsWith("error$soundmessage")) {
+    if(message.content.startsWith("e<soundmessage")) {
     let args = message.content.split(" ").slice(1);
     let ar = args.join(" ");
 
@@ -907,7 +907,7 @@ client.on("message", message => {
 
 client.on("message", message => {
     if (message.author.bot) return;
-    if(message.content == "error$membersmode") {
+    if(message.content == "e<membersmode") {
     const embed = new Discord.RichEmbed()
     .addField(`Member Mode🔋`,"-",   true)
 .addField(`💚 Online:   ${message.guild.members.filter(m=>m.presence.status == "online").size}`,"-",   true)
@@ -999,7 +999,7 @@ message.channel.send(avtEmbed);
        });
 
     client.on("message" , async (message) => {
-        if (message.content === "error$password") {
+        if (message.content === "e<password") {
        
        let color = "0x01DF01"
        
@@ -1014,7 +1014,7 @@ message.channel.send(avtEmbed);
        });
 
     client.on("message" , async (message) => {
-        if (message.content === "error$meme") {
+        if (message.content === "e<meme") {
        
        let color = "0x01DF01"
        
@@ -1028,7 +1028,7 @@ message.channel.send(avtEmbed);
        });
 
     client.on("message" , async (message) => {
-        if (message.content === "error$cursedminecraft") {
+        if (message.content === "e<cursedminecraft") {
        
        let color = "0x01DF01"
        
@@ -1135,19 +1135,19 @@ client.on("message", message => {
       let command = message.content.split(" ")[0];
       command = command.slice(adminprefix.length);
         if(command === "setwatching") {
-            if (!devs.includes(message.author.id)) return message.reply("**Are you sure you are from bot team? write ```error$isimfrombotteam``` to make sure you are from bot team**")
+            if (!devs.includes(message.author.id)) return message.reply("**Are you sure you are from bot team? write ```e<isimfrombotteam``` to make sure you are from bot team**")
                 const args = message.content.split(" ").slice(1).join(" ")
         if (!args) return message.channel.send("** Write The Watching Status **");
         client.user.setActivity(args ,{type: "WATCHING"});
         };
         if(command === "setplaying") {
-            if (!devs.includes(message.author.id)) return message.reply("**Are you sure you are from bot team? write ```error$isimfrombotteam``` to make sure you are from bot team**")
+            if (!devs.includes(message.author.id)) return message.reply("**Are you sure you are from bot team? write ```e<isimfrombotteam``` to make sure you are from bot team**")
                 const args = message.content.split(" ").slice(1).join(" ")
         if (!args) return message.channel.send("** Write The Playing Status **");
         client.user.setActivity(args ,{type: "PLAYING"});
         };
         if(command === "setlistening") {
-            if (!devs.includes(message.author.id)) return message.reply("**Are you sure you are from bot team? write ```error$isimfrombotteam``` to make sure you are from bot team**")
+            if (!devs.includes(message.author.id)) return message.reply("**Are you sure you are from bot team? write ```e<isimfrombotteam``` to make sure you are from bot team**")
                 const args = message.content.split(" ").slice(1).join(" ")
         if (!args) return message.channel.send("** Write The Listening Status **");
         client.user.setActivity(args ,{type: "LISTENING"});
