@@ -76,7 +76,6 @@ client.on("ready", function(){
 			.setTitle("**Admistration Commands**")
 			.setDescription("The command prefix is ${prefix}")
 			.addField("**e<createcolors [X]**","Creates some colored rules the [X] stands for how times")
-			.addField("**e<bc [MESSAGE]**","*Sends a message to all the server members [MESSAGE] stands for the message*")
 			.addField("**e<clear [X]**","*Clears the last [X] messages in the current channel*")
 			.addField("**e<unban [PERSONE]**","*Unbans the [PERSONE]*")
 			.setFooter(new Date())
@@ -410,18 +409,7 @@ client.on("message", function(msg) {
 
 
 
-client.on("message", message => {
-      if (!devs.includes(message.author.id)) return;
-  if (message.content.startsWith(adminprefix + "bcbot")) {
-    if (!devs.includes(message.author.id)) return; 
-let args = message.content.split(" ").slice(1).join(" ");
 
-message.channel.sendMessage("جار ارسال الرسالة |:white_check_mark:")
-client.users.forEach(m =>{
-m.sendMessage(args)
-})
-}
-});
 client.on("message", message => {
     if (message.author.bot) return;
 if (message.content.startsWith(prefix + "uptime")) {
@@ -732,32 +720,6 @@ client.on("message", message => {
         message.channel.sendEmbed(embed);
     };
 });
-
-client.on("message", message => {
-        if (message.author.id === client.user.id) return;
-        if (message.guild) {
-       let embed = new Discord.RichEmbed()
-        let args = message.content.split(" ").slice(1).join(" ");
-    if(message.content.split(" ")[0] == prefix + "bc") {
-        if (!args[1]) {
-    message.channel.send("**Usage: e<bc <message>**");
-    return;
-    }
-            message.guild.members.forEach(m => {
-       if(!message.member.hasPermission("ADMINISTRATOR")) return;
-                var bc = new Discord.RichEmbed()
-                .addField("» Server :", `${message.guild.name}`)
-                .addField("» Sender : ", `${message.author.username}#${message.author.discriminator}`)
-                .addField(" » Message : ", args)
-                .setColor("#ff0000")
-                // m.send(`[${m}]`);
-                m.send(`${m}`,{embed: bc});
-            });
-        }
-        } else {
-            return;
-        }
-    });
 
     client.on("message", message => {
         if (!message.content.startsWith(prefix)) return;
